@@ -42,36 +42,53 @@
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <h1 class="logo"><a href="login.html">Rikaz</a></h1>
+            <h1 class="logo"><a href="index.html">Rikaz</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link scrollto" href="register.html">Register</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+                    <!-- <li><a class="nav-link scrollto active" href="#signup">Sign Up</a></li> -->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
             <!-- .navbar -->
-
         </div>
     </header>
     <!-- End Header -->
+    <br><br>
 
+    <!-- ======= Export Results Section ======= -->
+    <section class="form">
+        <h1>Export Results</h1>
+        <form method="post" action="/">
+            <div class="field-wrap">
+                <h2>Select Format:</h2>
+                <input type="checkbox" id="PDF_data" value="PDF_data">
+                <label for="PDF_data" class="Export">1- PDF</label>
+                <br>
 
+                <input type="checkbox" id="JPG_data" value="JPG_data">
+                <label for="JPG_data" class="Export">2- JPG</label>
+                <br>
 
+                <input type="checkbox" id="PNG_data" value="PNG_data">
+                <label for="PNG_data" class="Export">3- PNG</label>
+                <br>
 
+                <input type="checkbox" id="CSV_data" value="CSV_data">
+                <label for="CSV_data" class="Export">4- CSV</label>
+                <br>
 
-
-
-
-
-
-
+            </div>
+            <input type="button" onclick="location.href='dashboard.html'" value="Export" class="button button-block">
+        </form>
+    </section>
+    <!-- Export Results Section -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">

@@ -42,37 +42,65 @@
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <h1 class="logo"><a href="login.html">Rikaz</a></h1>
+            <h1 class="logo"><a href="index.html">Rikaz</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link scrollto" href="register.html">Register</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+                    <!-- <li><a class="nav-link scrollto active" href="#signup">Sign Up</a></li> -->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
             <!-- .navbar -->
-
         </div>
     </header>
     <!-- End Header -->
+    <p></p>
 
+    <!-- ======= Previous Results Section ======= -->
+    <div class="container-result">
+        <section class="analysis-result">
+            <div class="box">
+                <span>Previous Results</span>
+                <br>
+                <!-- <div class="button-row">
+                    <button type="button">Filter Results</button>
+                    <input type="text" placeholder="Search Results">
+                </div> -->
 
+                <div class="result-item" onclick="navigateTo('analysis-results.html')">
+                    <strong> Result 1</strong> Exploration_Area_Image_001
+                </div>
 
+                <div class="result-item" onclick="navigateTo('analysis-results.html')">
+                    <strong> Result 2</strong> Exploration_Area_Image_002
+                </div>
 
+                <div class="result-item" onclick="navigateTo('analysis-results.html')">
+                    <strong> Result 3</strong> Exploration_Area_Image_003
+                    <!-- <input type="button" onclick="location.href='analysis-results.html'" value="View" class="button button-block-view"> -->
+                </div>
 
+                <!-- Add more result items as needed -->
+            </div>
+        </section>
+    </div>
+    <!-- End Previous Results Section -->
 
-
-
-
-
-
-
+    <!-- Function to navigate to the specified URL -->
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+    <br>
+    <br>
+    <br>
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="footer-top">

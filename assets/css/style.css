@@ -788,7 +788,7 @@ section {
 .contact .php-email-form .sent-message {
     display: none;
     color: #fff;
-    background: #18d26e;
+    background: #A17649;
     text-align: center;
     padding: 15px;
     font-weight: 600;
@@ -808,7 +808,7 @@ section {
     width: 24px;
     height: 24px;
     margin: 0 10px -6px 0;
-    border: 3px solid #18d26e;
+    border: 3px solid #A17649;
     border-top-color: #eee;
     animation: animate-loading 1s linear infinite;
 }
@@ -1053,9 +1053,9 @@ section {
 }
 
 
-/* ------------------
-   Signup Login form  
----------------------*/
+/*--------------------------------------------------------------
+# Signup Login Form
+--------------------------------------------------------------*/
 
 *,
 *:before,
@@ -1133,6 +1133,13 @@ a:hover {
     margin: 0 0 40px;
 }
 
+.form h2 {
+    text-align: left;
+    color: #000000;
+    font-weight: 300;
+    /* margin: 0 0 40px; */
+}
+
 label {
     position: absolute;
     transform: translateY(6px);
@@ -1144,7 +1151,8 @@ label {
     font-size: 19px;
 }
 
-label .req {
+label .req,
+small {
     margin: 2px;
     color: #A17649;
 }
@@ -1173,7 +1181,7 @@ textarea {
     background: none;
     background-image: none;
     border: 1px solid #5a5959;
-    color: #ffffff;
+    color: #0c0c0c;
     border-radius: 0;
     transition: border-color .25s ease, box-shadow .25s ease;
 }
@@ -1192,6 +1200,19 @@ textarea {
 .field-wrap {
     position: relative;
     margin-bottom: 40px;
+}
+
+input[type="checkbox"],
+.Export label {
+    display: inline-flex;
+    align-items: start;
+    /* margin-right: 100px; */
+}
+
+.Export label {
+    display: inline-flex;
+    text-align: left;
+    /* margin-right: 100px; */
 }
 
 .top-row:after {
@@ -1238,4 +1259,220 @@ textarea {
 .forgot {
     margin-top: -20px;
     text-align: right;
+}
+
+#file-upload {
+    color: #545454;
+    font-size: 19px;
+}
+
+
+/*--------------------------------------------------------------
+# Dashboard 
+--------------------------------------------------------------*/
+
+.dashboard .icon-box {
+    text-align: center;
+    padding: 80px 20px;
+    transition: all ease-in-out 0.3s;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    /* Adjust the height value as needed */
+}
+
+.dashboard .icon-box .icon {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+    background: #A17649;
+    transition: all 0.3s ease-out 0s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2;
+}
+
+.dashboard .icon-box .icon i {
+    color: #fff;
+    font-size: 28px;
+    transition: ease-in-out 0.3s;
+}
+
+.dashboard .icon-box .icon::before {
+    position: absolute;
+    content: "";
+    left: -8px;
+    top: -8px;
+    height: 100%;
+    width: 100%;
+    background: #a0774b33;
+    transition: all 0.3s ease-out 0s;
+    transform: translateZ(-1px);
+    z-index: -1;
+}
+
+.dashboard .icon-box h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.dashboard .icon-box h4 a {
+    color: #191919;
+}
+
+.dashboard .icon-box p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.dashboard .icon-box:hover {
+    background: #A17649;
+    border-color: #A17649;
+    padding: 70px 20px 90px 20px;
+}
+
+.dashboard .icon-box:hover .icon {
+    background: #fff;
+}
+
+.dashboard .icon-box:hover .icon i {
+    color: #A17649;
+}
+
+.dashboard .icon-box:hover .icon::before {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.dashboard .icon-box:hover h4 a,
+.dashboard .icon-box:hover p {
+    color: #fff;
+}
+
+
+/*--------------------------------------------------------------
+# Analysis Results
+--------------------------------------------------------------*/
+
+.container-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+}
+
+.analysis-result {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    text-align: center;
+}
+
+.analysis-result .box {
+    padding: 50px 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all ease-in-out 0.3s;
+    text-align: left;
+}
+
+.analysis-result .box span {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #a0774b;
+    text-align: center;
+}
+
+.analysis-result h4 {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0;
+    margin: 20px 0;
+    color: #191919;
+}
+
+.analysis-result strong,
+th {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0;
+    margin: 20px 0;
+    color: #191919;
+}
+
+.analysis-result .box p {
+    color: #aaaaaa;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.analysis-result table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.analysis-result th,
+.analysis-result td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.analysis-result th {
+    background-color: #f2f2f2;
+}
+
+.analysis-result img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/*--------------------------------------------------------------
+# Previous Results
+--------------------------------------------------------------*/
+
+
+/* .button-block-view {
+    display: inline;
+    width: 10%;
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: #fff;
+    color: #A17649;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+}
+
+.button-block-view:hover,
+.button-block-view:focus {
+    background: #A17649;
+    color: #fff;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+} */
+
+.result-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #0c0c0c51;
+    border-radius: 5px;
 }

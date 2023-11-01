@@ -42,36 +42,80 @@
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <h1 class="logo"><a href="login.html">Rikaz</a></h1>
+            <h1 class="logo"><a href="index.html">Rikaz</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link scrollto" href="register.html">Register</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
+                    <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+                    <!-- <li><a class="nav-link scrollto active" href="#signup">Sign Up</a></li> -->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
             <!-- .navbar -->
-
         </div>
     </header>
     <!-- End Header -->
+    <p></p>
 
+    <!-- ======= Analysis Result Section ======= -->
+    <div class="container-result">
+        <section class="analysis-result">
+            <div class="box">
+                <span>Image Analysis Results</span>
 
-
-
-
-
-
-
-
-
-
+                <h4>Image Information:</h4>
+                <ul>
+                    <li><strong>Image Name:</strong> Exploration_Area_Image_001</li>
+                    <li><strong>Date of Acquisition:</strong> October 31, 2023</li>
+                    <li><strong>Satellite Name:</strong> XYZ Satellite Sensor</li>
+                    <li><strong>Coordinates:</strong> Latitude: 21.4858° N, Longitude: 39.1925° E</li>
+                    <li><strong>Area Name:</strong> Jeddah City</li>
+                    <li><strong>Spatial Resolution:</strong> 1 meter</li>
+                </ul>
+                <br>
+                <h4>Mineral Analysis Results:</h4>
+                <table>
+                    <tr>
+                        <th>Mineral</th>
+                        <th>Concentration</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Quartz</td>
+                        <td>High</td>
+                        <td>Quartz is a common mineral associated with various mineral deposits, such as gold and silver.</td>
+                    </tr>
+                    <tr>
+                        <td>Feldspar</td>
+                        <td>Moderate</td>
+                        <td>Feldspar is found in igneous rocks and can indicate potential mineralization.</td>
+                    </tr>
+                    <tr>
+                        <td>Chlorite</td>
+                        <td>Low</td>
+                        <td>Chlorite is associated with hydrothermal alteration and can be an indicator of mineral deposits.</td>
+                    </tr>
+                    <tr>
+                        <td>Gypsum</td>
+                        <td>Moderate</td>
+                        <td>Gypsum is a soft sulfate mineral often used in construction and plasterboard.</td>
+                    </tr>
+                </table>
+                <br>
+                <h4>Mineral Distribution Map:</h4>
+                <img src="/assets/img/mineral_distribution_map.jpg" alt="Mineral Distribution Map">
+                <br><br><br>
+                <input type="button" onclick="location.href='export-results.html'" value="Export Results" class="button button-block">
+                <br>
+            </div>
+        </section>
+    </div>
+    <!-- End Analysis Result Section -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">

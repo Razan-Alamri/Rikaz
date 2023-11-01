@@ -5,10 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Rikaz - Login/Sign Up</title>
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="./assets/css/login-style.css"> -->
+    <title>Rikaz - Upload Satellite Image</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -37,6 +34,55 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+    <!-- <style>
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"],
+        input[type="button"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+        
+        .note {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+        }
+    </style> -->
 </head>
 
 <body>
@@ -65,87 +111,42 @@
     <!-- End Header -->
     <br><br>
 
+    <!-- ======= Upload Satellite Image Section ======= -->
     <div class="form">
-
-        <ul class="tab-group">
-            <li class="tab active"><a href="#login">Log In</a></li>
-            <li class="tab"><a href="#signup">Sign Up</a></li>
-        </ul>
-
         <div class="tab-content">
-            <div id="login">
-                <h1>Welcome Back!</h1>
-
-                <form id="login-form" action="/" method="post">
-
-                    <div class="field-wrap">
-                        <label>
-                Email Address<span class="req">*</span>
-              </label>
-                        <input type="email" required autocomplete="off" />
-                    </div>
-
-                    <div class="field-wrap">
-                        <label>
-                Password<span class="req">*</span>
-              </label>
-                        <input type="password" required autocomplete="off" />
-                    </div>
-
-                    <p class="forgot"><a href="#">Forgot Password?</a></p>
-
-                    <button class="button button-block" />Log In</button>
-
-                </form>
-
-            </div>
-
-            <div id="signup">
-                <h1>Sign Up For Rikaz</h1>
-
-                <form id="signup-form" action="/" method="post">
-
-                    <div class="top-row">
-                        <div class="field-wrap">
-                            <label>
-                  First Name<span class="req">*</span>
-                </label>
-                            <input type="text" required autocomplete="off" />
-                        </div>
-
-                        <div class="field-wrap">
-                            <label>
-                  Last Name<span class="req">*</span>
-                </label>
-                            <input type="text" required autocomplete="off" />
-                        </div>
-                    </div>
-
-                    <div class="field-wrap">
-                        <label>
-                Email Address<span class="req">*</span>
-              </label>
-                        <input type="email" required autocomplete="off" />
-                    </div>
-
-                    <div class="field-wrap">
-                        <label>
-                Set A Password<span class="req">*</span>
-              </label>
-                        <input type="password" required autocomplete="off" />
-                    </div>
-
-                    <button type="submit" class="button button-block" />Get Started</button>
-
-                </form>
-
-            </div>
-
+            <h1>Upload Satellite Image</h1>
+            <form action="analysis-results.html" method="POST">
+                <div class="field-wrap">
+                    <label>Image Name: <span class="req">*</span></label>
+                    <input type="text" id="image-name" name="image-name" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <label for="satellite-name">Satellite Name: <span class="req">*</span></label>
+                    <input type="text" id="satellite-name" name="satellite-name" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <label for="coordinates">Coordinates: <span class="req">*</span></label>
+                    <input type="text" id="coordinates" name="coordinates" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <label for="area-name">Area Name: <span class="req">*</span></label>
+                    <input type="text" id="area-name" name="area-name" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <label for="spatial-resolution">Spatial Resolution: <span class="req">*</span></label>
+                    <input type="text" id="spatial-resolution" name="spatial-resolution" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <input type="file" id="file-upload" name="file-upload" accept=".jpg, .png, .tiff, .bmp" aria-describedby="file-upload-info" required autocomplete="off">
+                    <small id="file-upload-info" class="info">Supported formats: .jpg, .png, .tiff, .bmp</small>
+                </div>
+                <input type="submit" value="Upload" class="button button-block">
+                <br>
+                <input type="button" value="Cancel" onclick="location.href='dashboard.html'" class="button button-block">
+            </form>
         </div>
-        <!-- tab-content -->
-
     </div>
-    <!-- /form -->
+    <!-- End Upload Satellite Image Section -->
     <!-- partial -->
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
