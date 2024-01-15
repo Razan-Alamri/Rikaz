@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Rikaz - Dashboard</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="static/img/favicon.png" rel="icon" />
+    <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="static/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="static/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    {% include 'header.html' %}
+    <!-- End Header -->
+    <br /><br />
+
+    <!-- ======= Dashboard Section ======= -->
+    <section id="dashboard" class="dashboard">
+      <div class="container">
+        <div class="section-title">
+          <span>Welcome, [Mohammed]!</span>
+          <h2>Welcome, [Mohammed]!</h2>
+          <p>The RIKAZ system offers a range of services tailored for geologists</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
+            <div class="icon-box" onclick="navigateTo('/satellite-upload')">
+              <div class="icon">
+                <i class="bx bx-cloud-upload"></i>
+              </div>
+              <h4>Satellite Image Upload</h4>
+              <p>Geologists can upload satellite images of the target areas for mineral exploration and analysis.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
+            <div class="icon-box" onclick="navigateTo('/previous-results')">
+              <div class="icon">
+                <i class="bx bx-data"></i>
+              </div>
+              <h4>Previous Results</h4>
+              <p>The system stores and manages geological data in a secure database, allowing geologists to access and retrieve previous analysis results.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
+            <div class="icon-box" onclick="navigateTo('/account-settings')">
+              <div class="icon">
+                <i class="bx bx-export"></i>
+              </div>
+              <h4>Account Settings</h4>
+              <p>Geologists can modify their account settings, such as updating personal information, changing passwords, or managing notification preferences.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Dashboard Section -->
+
+    <!-- Function to navigate to the specified URL -->
+    <script>
+      function navigateTo(url) {
+        window.location.href = url
+      }
+    </script>
+
+    <!-- ======= Footer ======= -->
+    {% include 'footer.html' %}
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="static/vendor/aos/aos.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="static/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="static/js/main.js"></script>
+  </body>
+</html>

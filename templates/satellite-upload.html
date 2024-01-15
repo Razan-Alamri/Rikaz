@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Rikaz - Upload Satellite Image</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="static/img/favicon.png" rel="icon">
+    <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/vendor/aos/aos.css" rel="stylesheet">
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="static/css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    {% include 'header.html' %}
+    <!-- End Header -->
+    <br><br>
+
+    <!-- ======= Upload Satellite Image Section ======= -->
+    <div class="form">
+        <div class="tab-content">
+            <h1>Upload Satellite Image</h1>
+            <form action="/analysis-results" method="POST">
+                <div class="field-wrap">
+                    <label>Image Name: <span class="req">*</span></label>
+                    <input type="text" id="image-name" name="image-name" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <label for="satellite-name">Satellite Name: <span class="req">*</span></label>
+                    <input type="text" id="satellite-name" name="satellite-name" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <label for="coordinates">Coordinates: <span class="req">*</span></label>
+                    <input type="text" id="coordinates" name="coordinates" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <label for="area-name">Area Name: <span class="req">*</span></label>
+                    <input type="text" id="area-name" name="area-name" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <label for="spatial-resolution">Spatial Resolution: <span class="req">*</span></label>
+                    <input type="text" id="spatial-resolution" name="spatial-resolution" required autocomplete="off">
+                </div>
+                <div class="field-wrap">
+                    <input type="file" id="file-upload" name="file-upload" accept=".jpg, .png, .tiff, .bmp" aria-describedby="file-upload-info" required autocomplete="off">
+                    <small id="file-upload-info" class="info">Supported formats: .jpg, .png, .tiff, .bmp</small>
+                </div>
+                <input type="submit" value="Upload" class="button button-block">
+                <br>
+                <input type="button" value="Cancel" onclick="location.href='dashboard'" class="button button-block">
+            </form>
+        </div>
+    </div>
+    <!-- End Upload Satellite Image Section -->
+    
+    <!-- partial -->
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="static/js/login-script.js"></script>
+
+    <!-- ======= Footer ======= -->
+    {% include 'footer.html' %}
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="static/vendor/aos/aos.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="static/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="static/js/main.js"></script>
+
+  </body>
+
+</html>

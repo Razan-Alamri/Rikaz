@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Rikaz - Analysis Results</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="static/img/favicon.png" rel="icon" />
+    <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="static/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="static/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    {% include 'header.html' %}
+    <!-- End Header -->
+    <br /><br />
+    <p></p>
+
+    <!-- ======= Analysis Result Section ======= -->
+    <div class="container-result">
+      <section class="analysis-result">
+        <div class="box">
+          <span>Image Analysis Results</span>
+
+          <h4>Image Information:</h4>
+          <ul>
+            <li>
+              <strong>Image Name:</strong> Exploration_Area_Image_001
+            </li>
+            <li>
+              <strong>Date of Acquisition:</strong> October 31, 2023
+            </li>
+            <li>
+              <strong>Satellite Name:</strong> XYZ Satellite Sensor
+            </li>
+            <li>
+              <strong>Coordinates:</strong> Latitude: 21.4858° N, Longitude: 39.1925° E
+            </li>
+            <li>
+              <strong>Area Name:</strong> Jeddah City
+            </li>
+            <li>
+              <strong>Spatial Resolution:</strong> 1 meter
+            </li>
+          </ul>
+          <br />
+          <h4>Mineral Analysis Results:</h4>
+          <table>
+            <tr>
+              <th>Mineral</th>
+              <th>Concentration</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>Quartz</td>
+              <td>High</td>
+              <td>Quartz is a common mineral associated with various mineral deposits, such as gold and silver.</td>
+            </tr>
+            <tr>
+              <td>Feldspar</td>
+              <td>Moderate</td>
+              <td>Feldspar is found in igneous rocks and can indicate potential mineralization.</td>
+            </tr>
+            <tr>
+              <td>Chlorite</td>
+              <td>Low</td>
+              <td>Chlorite is associated with hydrothermal alteration and can be an indicator of mineral deposits.</td>
+            </tr>
+            <tr>
+              <td>Gypsum</td>
+              <td>Moderate</td>
+              <td>Gypsum is a soft sulfate mineral often used in construction and plasterboard.</td>
+            </tr>
+          </table>
+          <br />
+          <h4>Mineral Distribution Map:</h4>
+          <img src="/static/img/mineral_distribution_map.jpg" alt="Mineral Distribution Map" />
+          <br /><br /><br />
+          <input type="button" onclick="location.href='/export-results'" value="Export Results" class="button button-block" />
+          <br />
+        </div>
+      </section>
+    </div>
+    <!-- End Analysis Result Section -->
+
+    <!-- ======= Footer ======= -->
+    {% include 'footer.html' %}
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="static/vendor/aos/aos.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="static/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="static/js/main.js"></script>
+  </body>
+</html>

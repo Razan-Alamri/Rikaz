@@ -41,7 +41,6 @@ $('.tab a').on('click', function(e) {
 
 });
 
-
 $(document).ready(function() {
     // Handle login form submission
     $('#login-form').submit(function(e) {
@@ -59,7 +58,7 @@ $(document).ready(function() {
         // Additional validation logic if needed
 
         // Redirect to the dashboard page
-        window.location.href = "dashboard.html";
+        window.location.href = "/dashboard";
     });
 
     // Handle sign-up form submission
@@ -80,6 +79,6 @@ $(document).ready(function() {
         // Additional validation logic if needed
 
         // Redirect to the dashboard page
-        window.location.href = "dashboard.html";
+        window.location.href = "/dashboard";
     });
 });

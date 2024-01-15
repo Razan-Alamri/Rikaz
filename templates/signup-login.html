@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Rikaz - Login/Sign Up</title>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="static/img/favicon.png" rel="icon">
+    <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="static/vendor/aos/aos.css" rel="stylesheet">
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="static/css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    {% include 'header.html' %}
+    <!-- End Header -->
+    <br><br>
+
+    <div class="form">
+
+        <ul class="tab-group">
+            <li class="tab active"><a href="#login">Log In</a></li>
+            <li class="tab"><a href="#signup">Sign Up</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="login">
+                <h1>Welcome Back!</h1>
+
+                <form id="login-form" action="/" method="post">
+
+                    <div class="field-wrap">
+                        <label>
+                Email Address<span class="req">*</span>
+              </label>
+                        <input type="email" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                Password<span class="req">*</span>
+              </label>
+                        <input type="password" required autocomplete="off" />
+                    </div>
+
+                    <p class="forgot"><a href="#">Forgot Password?</a></p>
+
+                    <button class="button button-block">Log In</button>
+
+                </form>
+
+            </div>
+
+            <div id="signup">
+                <h1>Sign Up For Rikaz</h1>
+
+                <form id="signup-form" action="/" method="post">
+
+                    <div class="top-row">
+                        <div class="field-wrap">
+                            <label>
+                  First Name<span class="req">*</span>
+                </label>
+                            <input type="text" required autocomplete="off" />
+                        </div>
+
+                        <div class="field-wrap">
+                            <label>
+                  Last Name<span class="req">*</span>
+                </label>
+                            <input type="text" required autocomplete="off" />
+                        </div>
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                Email Address<span class="req">*</span>
+              </label>
+                        <input type="email" required autocomplete="off" />
+                    </div>
+
+                    <div class="field-wrap">
+                        <label>
+                Set A Password<span class="req">*</span>
+              </label>
+                        <input type="password" required autocomplete="off" />
+                    </div>
+
+                    <button type="submit" class="button button-block">Get Started</button>
+
+                </form>
+
+            </div>
+
+        </div>
+        <!-- tab-content -->
+
+    </div>
+    <!-- /form -->
+    
+    <!-- partial -->
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="static/js/login-script.js"></script>
+
+    <!-- ======= Footer ======= -->
+    {% include 'footer.html' %}
+    <!-- End Footer -->
+  
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="static/vendor/aos/aos.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="static/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="static/js/main.js"></script>
+
+  </body>
+
+</html>
