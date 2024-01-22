@@ -1,10 +1,25 @@
+import os
+import sqlite3
 from flask import Flask, render_template, g, request, session
 
-app = Flask(__name__, template_folder='templates')
-app.secret_key = 'your-secret-key'
+# The Flask application is created and configured. 
+# The database file, secret key.
+app = Flask(__name__)
+app.config['DATABASE'] = 'Rikaz.db'
+app.config['SECRET_KEY'] = os.urandom(24)
 
-#
-database_file = "rikaz.db"
+# Database connection setup and teardown functions
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(app.config['DATABASE'])
+    return db
+
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
 
 # Home page
 @app.route("/")
