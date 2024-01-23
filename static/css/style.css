@@ -1271,6 +1271,14 @@ input[type="checkbox"],
 # Dashboard 
 --------------------------------------------------------------*/
 
+.logout-button {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
 .dashboard .icon-box {
     text-align: center;
     padding: 80px 20px;

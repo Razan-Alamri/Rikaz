@@ -37,9 +37,14 @@
     <section id="dashboard" class="dashboard">
       <div class="container">
         <div class="section-title">
-          <span>Welcome, [Mohammed]!</span>
-          <h2>Welcome, [Mohammed]!</h2>
-          <p>The RIKAZ system offers a range of services tailored for geologists</p>
+          <span>Welcome, {{ user[1] }}!</span>
+          <h2>Welcome, {{ user[1] }}!</h2>
+          <p>The Rikaz system offers a range of services tailored for geologists</p>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="text-center mt-4">
+          <a href="/logout" class="btn btn-danger logout-button">Logout</a>
         </div>
 
         <div class="row">
