@@ -40,7 +40,7 @@
     <div class="form">
         <div class="tab-content">
             <h1>Upload Satellite Image</h1>
-            <form action="/analysis-results" method="POST">
+            <form action="/satellite-upload" method="POST" enctype="multipart/form-data">
                 <div class="field-wrap">
                     <label>Image Name: <span class="req">*</span></label>
                     <input type="text" id="image-name" name="image-name" required autocomplete="off">

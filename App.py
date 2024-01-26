@@ -1,9 +1,11 @@
 import os
+import re
 import sqlite3
 from flask import Flask, render_template, g, request, session, redirect
+from datetime import datetime 
 
 # The Flask application is created and configured.
-# The database file, secret key.
+# The database satellite_image, secret key.
 app = Flask(__name__)
 app.config['DATABASE'] = 'Rikaz.db'
 app.config['SECRET_KEY'] = os.urandom(24)
@@ -45,8 +47,10 @@ def signup_login():
             # Validate the email and password
             if not is_valid_email(email):
                 return render_template("signup-login.html", alert_message="Invalid email")
-            if not is_valid_password(password):
-                return render_template("signup-login.html", alert_message="Invalid password")
+            
+            password_error =  is_valid_password(password)
+            if password_error:
+                return render_template("signup-login.html", alert_message=password_error)
 
             # Check if the email is already in use
             if is_email_duplicate(email):
@@ -66,7 +70,6 @@ def signup_login():
 
         # Check if the user clicked the login button
         if submit_button == "login":
-            print("11")
             # Retrieve the user from the database based on the email
             db = get_db()
             cursor = db.cursor()
@@ -76,7 +79,7 @@ def signup_login():
             # Validate the email and password
             if not user or user[4] != password:
                 return render_template("signup-login.html", alert_message="Invalid email or password")
-            print("33")
+            
             # Store the user ID in the session
             session["user_id"] = user[0]
 
@@ -86,16 +89,34 @@ def signup_login():
     # Render the signup-login page for GET requests
     return render_template("signup-login.html")
 
+# Check if the email is valid
 def is_valid_email(email):
-    # Perform email validation here
-    # You can use regular expressions or a library like Flask-WTF to validate the email format
-    return True # Replace with your email validation logic
+    # Regular expression pattern for email validation
+    email_pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
 
+    # Check if the email matches the pattern
+    if re.match(email_pattern, email):
+        return True
+    else:
+        return False
+
+# Check if the password is valid
 def is_valid_password(password):
-    # Perform password validation here
-    # You can check the length, complexity, or other requirements for a valid password
-    return True # Replace with your password validation logic
+    # Check password length
+    if len(password) < 8:
+        return "Password must be at least 8 characters long."
 
+    # Check password complexity (e.g., at least one uppercase, one lowercase, and one digit)
+    if not any(char.isupper() for char in password):
+        return "Password must contain at least one uppercase letter."
+    if not any(char.islower() for char in password):
+        return "Password must contain at least one lowercase letter."
+    if not any(char.isdigit() for char in password):
+        return "Password must contain at least one digit."
+
+    return None
+
+# Check if the email is duplicate
 def is_email_duplicate(email):
     # Check if the email already exists in the database
     db = get_db()
@@ -122,28 +143,60 @@ def dashboard():
         # User is not logged in, redirect to the signup-login page
         return redirect("/signup-login")
 
-
-
-# Satellite Upload page
-@app.route("/satellite-upload")
+# Upload Satellite Image page
+@app.route("/satellite-upload", methods=["GET", "POST"])
 def satellite_upload():
+    if request.method == "POST":
+        # Get the form data
+        image_name = request.form.get("image-name")
+        satellite_name = request.form.get("satellite-name")
+        coordinates = request.form.get("coordinates")
+        area_name = request.form.get("area-name")
+        spatial_resolution = request.form.get("spatial-resolution")
+        satellite_image = request.files["file-upload"]
+
+        # Perform any necessary data processing or validation
+        # For example, you can save the satellite_image to a specified directory
+        # and store the relevant information in the database
+
+        # Save the uploaded satellite_image
+        if satellite_image:
+            satellite_image_data = satellite_image.read()
+        else:
+            satellite_image_data = None
+
+        # Store the form data in the database
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute(
+            "INSERT INTO SatelliteImage (imageName, satelliteImage, satelliteName, Coordinates, areaName, Resolution, Timestamp, userID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            (image_name, satellite_image_data, satellite_name, coordinates, area_name, spatial_resolution, datetime.now(), session["user_id"])
+        )
+        db.commit()
+        cursor.close()
+        
+        # Pass the form data to the analysis results template
+        analysis_results = {
+            "image_name": image_name,
+            "acquisition_date": datetime.now(),
+            "satellite_name": satellite_name,
+            "coordinates": coordinates,
+            "area_name": area_name,
+            "spatial_resolution": spatial_resolution
+        }
+
+        # Redirect the user to the analysis results page
+        return render_template("analysis-results.html", analysis_results=analysis_results)
+        # Redirect the user to the analysis results page or perform any additional actions
+        return redirect("/analysis-results")
+
+    # Render the upload satellite image page for GET requests
     return render_template("satellite-upload.html")
 
-
-# Analysis results page
-@app.route("/analysis-results", methods=["GET", "POST"])
-def analysis_results():
-    # Process the uploaded file and perform analysis if needed
-    # Retrieve any form data if necessary
-    image_name = request.form.get("image-name")
-    satellite_name = request.form.get("satellite-name")
-    coordinates = request.form.get("coordinates")
-    area_name = request.form.get("area-name")
-    spatial_resolution = request.form.get("spatial-resolution")
-
-    # Additional processing and analysis logic if needed
-
-    return render_template("analysis-results.html")
+# # Analysis results page
+# @app.route("/analysis-results", methods=["GET", "POST"])
+# def analysis_results():
+#     return render_template("analysis-results.html")
 
 
 # Export results page
