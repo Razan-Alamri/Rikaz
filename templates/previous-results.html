@@ -39,25 +39,17 @@
         <div class="box">
           <span>Previous Results</span>
           <br />
-          <div class="result-item" onclick="navigateTo('/analysis-results')">
-            <strong>Result 1</strong> Exploration_Area_Image_001
-          </div>
-
-          <div class="result-item" onclick="navigateTo('/analysis-results')">
-            <strong>Result 2</strong> Exploration_Area_Image_002
-          </div>
-
-          <div class="result-item" onclick="navigateTo('/analysis-results')">
-            <strong>Result 3</strong> Exploration_Area_Image_003
-          </div>
-
-          <!-- Add more result items as needed -->
+          {% for result in previous_results %}
+            <div class="result-item" onclick="navigateTo('/analysis-results-{{ result[0] }}')">
+              <strong>Result {{ loop.index }}</strong> {{ result[1] }}
+            </div>
+          {% endfor %}
         </div>
       </section>
     </div>
     <!-- End Previous Results Section -->
 
-    <!-- Function to navigate to the specified URL -->
+    <!-- Function to navigate to the specified route -->
     <script>
       function navigateTo(route) {
         window.location.href = route

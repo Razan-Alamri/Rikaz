@@ -1,3 +1,4 @@
+import base64
 import os
 import re
 import sqlite3
@@ -6,7 +7,7 @@ from datetime import datetime
 
 # The Flask application is created and configured.
 # The database satellite_image, secret key.
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static', static_folder='static')
 app.config['DATABASE'] = 'Rikaz.db'
 app.config['SECRET_KEY'] = os.urandom(24)
 
@@ -165,7 +166,7 @@ def satellite_upload():
         else:
             satellite_image_data = None
 
-        # Store the form data in the database
+        # Store the satellite image data in the SatelliteImage table
         db = get_db()
         cursor = db.cursor()
         cursor.execute(
@@ -173,8 +174,22 @@ def satellite_upload():
             (image_name, satellite_image_data, satellite_name, coordinates, area_name, spatial_resolution, datetime.now(), session["user_id"])
         )
         db.commit()
-        cursor.close()
+
+        # Get the imageID of the inserted satellite image
+        image_id = cursor.lastrowid
+
+        # Store the result data in the Result table
         
+        # ***************************************************************************************
+        # ***************** Change (satellite_image_data) After finsh Map model *****************
+        # ***************************************************************************************
+        cursor.execute(
+            "INSERT INTO Result (Map, Timestamp, userID, imageID) VALUES (?, ?, ?, ?)",
+            (satellite_image_data, datetime.now(), session["user_id"], image_id)
+        )
+        db.commit()
+        cursor.close()
+
         # Pass the form data to the analysis results template
         analysis_results = {
             "image_name": image_name,
@@ -182,35 +197,87 @@ def satellite_upload():
             "satellite_name": satellite_name,
             "coordinates": coordinates,
             "area_name": area_name,
-            "spatial_resolution": spatial_resolution
+            "spatial_resolution": spatial_resolution,
+            
+            # ***************************************************************************************
+            # **************************** Change After Finsh Map Model *****************************
+            # ***************************************************************************************
+            "map_data": base64.b64encode(satellite_image_data).decode("utf-8")
         }
 
         # Redirect the user to the analysis results page
         return render_template("analysis-results.html", analysis_results=analysis_results)
-        # Redirect the user to the analysis results page or perform any additional actions
-        return redirect("/analysis-results")
 
     # Render the upload satellite image page for GET requests
     return render_template("satellite-upload.html")
 
+# Previous Results page
+@app.route("/previous-results")
+def previous_results():
+    # Fetch the previous results for the logged-in user
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute(
+        "SELECT Result.resultID, SatelliteImage.imageName FROM Result "
+        "JOIN SatelliteImage ON Result.imageID = SatelliteImage.imageID "
+        "WHERE Result.userID = ?",
+        (session["user_id"],)
+    )
+    previous_results = cursor.fetchall()
+    cursor.close()
+
+    # Render the previous results template and pass the results to it
+    return render_template("previous-results.html", previous_results=previous_results)
+
+# Analysis Results page
+@app.route("/analysis-results-<int:result_id>")
+def analysis_results(result_id):
+    # Check if the user is logged in
+    if "user_id" in session:
+        # Fetch the previous results for the logged-in user
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute(
+            "SELECT Result.resultID, SatelliteImage.imageName, SatelliteImage.Coordinates, SatelliteImage.areaName, SatelliteImage.Resolution, SatelliteImage.Timestamp, Result.Map "
+            "FROM Result "
+            "JOIN SatelliteImage ON Result.imageID = SatelliteImage.imageID "
+            "WHERE Result.resultID = ? AND Result.userID = ?",
+            (result_id, session["user_id"])
+        )
+        result = cursor.fetchone()
+        cursor.close()
+        
+        if result is None:
+            return "Analysis result not found"
+
+        # Create a dictionary from the result object
+        analysis_results = {
+            "result_id": result[0],
+            "image_name": result[1],
+            "coordinates": result[2],
+            "area_name": result[3],
+            "spatial_resolution": result[4],
+            "acquisition_date":  result[5],
+            "map_data": base64.b64encode(result[6]).decode("utf-8")
+        }
+
+        # Redirect the user to the analysis results page
+        return render_template("analysis-results.html", analysis_results=analysis_results)
+    
+    else:
+        # User is not logged in, redirect to the signup-login page
+        return redirect("/signup-login")
+  
 # # Analysis results page
 # @app.route("/analysis-results", methods=["GET", "POST"])
 # def analysis_results():
 #     return render_template("analysis-results.html")
 
-
 # Export results page
 @app.route("/export-results")
 def export_results():
     return render_template("export-results.html")
-
-
-# Previous Results page
-@app.route("/previous-results")
-def previous_results():
-    return render_template("previous-results.html")
-
-
+      
 # Account Settings page
 @app.route("/account-settings")
 def account_settings():

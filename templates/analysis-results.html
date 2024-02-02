@@ -62,6 +62,7 @@
             </li>
           </ul>
           <br />
+
           <h4>Mineral Analysis Results:</h4>
           <table>
             <tr>
@@ -91,10 +92,14 @@
             </tr>
           </table>
           <br />
+
           <h4>Mineral Distribution Map:</h4>
-          <img src="/static/img/mineral_distribution_map.jpg" alt="Mineral Distribution Map" />
+          <img src="data:image/jpeg;base64,{{ analysis_results.map_data }}" alt="Mineral Distribution Map" />
           <br /><br /><br />
+
           <input type="button" onclick="location.href='/export-results'" value="Export Results" class="button button-block" />
+          <br />
+          <input type="button" onclick="location.href='/dashboard'" value="Ok" class="button button-block" />
           <br />
         </div>
       </section>
