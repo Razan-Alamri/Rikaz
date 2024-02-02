@@ -33,6 +33,62 @@
     <!-- End Header -->
     <br /><br />
 
+    <!-- ======= Account Settings Section ======= -->
+    <section id="account-settings" class="account-settings">
+      <div class="container">
+        <div class="section-title">
+          <h2>Account Settings</h2>
+        </div>
+        
+        <!-- Logout Button -->
+        <div class="text-center mt-4">
+          <a href="/logout" class="btn btn-danger logout-button">Logout</a>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
+            <div class="icon-box" onclick="navigateTo('/update-information')">
+              <div class="icon">
+                <i class="bx bx-user"></i>
+              </div>
+              <h4>Update Information</h4>
+              <p>Modify your personal information such as name and email.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
+            <div class="icon-box" onclick="navigateTo('/change-password')">
+              <div class="icon">
+                <i class="bx bx-lock"></i>
+              </div>
+              <h4>Change Password</h4>
+              <p>Update your account password to ensure security and privacy.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
+            <div class="icon-box" onclick="navigateTo('/email-preferences')">
+              <div class="icon">
+                <i class="bx bx-envelope"></i>
+              </div>
+              <h4>Email Preferences</h4>
+              <p>Manage your email preferences and choose which types of emails you want to receive.</p>
+            </div>
+          </div>
+        </div>
+      </br>
+        <button onclick="navigateTo('/dashboard')" type="submit" class="button button-block">Go Back</button>
+      </div>
+    </section>
+    <!-- End Account Settings Section -->
+
+    <!-- Function to navigate to the specified URL -->
+    <script>
+      function navigateTo(url) {
+        window.location.href = url
+      }
+    </script>
+
     <!-- ======= Footer ======= -->
     {% include 'footer.html' %}
     <!-- End Footer -->

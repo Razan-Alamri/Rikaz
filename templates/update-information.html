@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Rikaz - Previous Results</title>
+    <title>Rikaz - Update Information</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -31,35 +31,37 @@
     <!-- ======= Header ======= -->
     {% include 'header.html' %}
     <!-- End Header -->
-    <p></p>
+    <br /><br />
 
-    <!-- ======= Previous Results Section ======= -->
-    <div class="container-result">
-      <section class="analysis-result">
-        <div class="box">
-          <span>Previous Results</span>
-          <br />
-          {% for result in previous_results %}
-            <div class="result-item" onclick="navigateTo('/analysis-results-{{ result[0] }}')">
-              <strong>Result {{ loop.index }}</strong> {{ result[1] }}_{{ result[0] }}
-            </div>
-          {% endfor %}
-        </div>
-      </section>
+    <!-- ======= Update Information Section ======= -->
+
+    <!-- <div class="section-title">
+      <h2>Account Settings</h2>
+    </div> -->
+
+    <div class="form update-info">
+      <div class="tab-content">
+        <h1>Update Informations</h1>
+        <form action="{{ url_for('update_information') }}" method="POST">
+          <div class="field-wrap">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" value="{{ user.email }}" required />
+        
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" value="{{ user.first_name }}" required />
+          
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" value="{{ user.last_name }}" required />
+    
+          </div>
+          <button type="submit" class="button button-block">Update Information</button>
+        </br>
+          <button onclick="navigateTo('/account-settings')" type="submit" class="button button-block">Cancel</button>
+        </form>
+      </div>
     </div>
-    <!-- End Previous Results Section -->
-
-    <!-- Function to navigate to the specified route -->
-    <script>
-      function navigateTo(route) {
-        window.location.href = route
-      }
-    </script>
-
-    <br />
-    <br />
-    <br />
-
+    <!-- End Update Information Section -->
+    
     <!-- ======= Footer ======= -->
     {% include 'footer.html' %}
     <!-- End Footer -->

@@ -2,7 +2,7 @@ import base64
 import os
 import re
 import sqlite3
-from flask import Flask, render_template, g, request, session, redirect
+from flask import Flask, flash, render_template, g, request, session, redirect, url_for
 from datetime import datetime 
 
 # The Flask application is created and configured.
@@ -279,10 +279,90 @@ def export_results():
     return render_template("export-results.html")
       
 # Account Settings page
-@app.route("/account-settings")
+@app.route('/account-settings')
 def account_settings():
-    return render_template("account-settings.html")
+    user_id = session.get('user_id')
+    if not user_id:
+        flash('Please log in to access this page.', 'error')
+        return redirect(url_for('signup_login'))
 
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute('SELECT Email, firstName, lastName FROM User WHERE userID = ?', (user_id,))
+    user_info = cursor.fetchone()
+    cursor.close()
+
+    if user_info:
+        user = {
+            'email': user_info[0],
+            'first_name': user_info[1],
+            'last_name': user_info[2],
+        }
+        return render_template('account-settings.html', user=user)
+
+    flash('User not found.', 'error')
+    return redirect(url_for('signup_login'))
+
+# Update Information page
+@app.route('/update-information', methods=['GET', 'POST'])
+def update_information():
+    if request.method == 'GET':
+        # Handle GET request (display form)
+        user_id = session.get('user_id')
+        if not user_id:
+            flash('Please log in to access this page.', 'error')
+            return redirect(url_for('signup_login'))
+        
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute('SELECT Email, firstName, lastName FROM User WHERE userID = ?', (user_id,))
+        user_info = cursor.fetchone()
+        cursor.close()
+
+        if user_info:
+            user = {
+                'email': user_info[0],
+                'first_name': user_info[1],
+                'last_name': user_info[2],
+            }
+            return render_template('update-information.html', user=user)
+
+        flash('User not found.', 'error')
+        return redirect(url_for('signup_login'))
+
+    elif request.method == 'POST':
+        # Handle POST request (form submission)
+        email = request.form.get('email')
+        first_name = request.form.get('first_name')
+        last_name = request.form.get('last_name')
+        user_id = session.get('user_id')
+
+        # Validate the form data
+        if not is_valid_email(email):
+            flash('Invalid email address!', 'error')
+            return redirect(url_for('account_settings'))
+
+        conn = get_db()
+        cursor = conn.cursor()
+
+        try:
+            # Update the user information in the database
+            cursor.execute(
+                'UPDATE User SET Email = ?, firstName = ?, lastName = ? WHERE userID = ?',
+                (email, first_name, last_name, user_id)
+            )
+            conn.commit()
+
+            flash('User information updated successfully!', 'success')
+            return redirect(url_for('account_settings'))
+
+        except sqlite3.Error as e:
+            flash('An error occurred while updating user information: ' + str(e), 'error')
+            return redirect(url_for('account_settings'))
+
+        finally:
+            cursor.close()
+    
 # Logout route
 @app.route("/logout")
 def logout():
