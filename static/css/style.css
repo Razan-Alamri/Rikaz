@@ -1146,7 +1146,12 @@ label {
     left: 13px;
     color: #545454;
     transition: all 0.25s ease;
+    backface-visibility: hidden;
+    /* Standard property for broader compatibility */
     -webkit-backface-visibility: hidden;
+    /* WebKit browsers (Chrome, Safari, etc.) */
+    -moz-backface-visibility: hidden;
+    /* Firefox */
     pointer-events: none;
     font-size: 19px;
 }
@@ -1244,6 +1249,11 @@ input[type="checkbox"],
     color: #ffffff;
     transition: all 0.5s ease;
     -webkit-appearance: none;
+    /* WebKit browsers (Chrome, Safari, etc.) */
+    -moz-appearance: none;
+    /* Firefox */
+    appearance: none;
+    /* Standard property for broader compatibility */
 }
 
 .button:hover,
