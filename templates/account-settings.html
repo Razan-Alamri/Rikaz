@@ -25,6 +25,15 @@
 
     <!-- Template Main CSS File -->
     <link href="static/css/style.css" rel="stylesheet" />
+
+    <script>
+      // Display an alert box with the error message
+      {% if alert_message %}
+      window.onload = function() {
+          alert("{{ alert_message }}");
+      }
+      {% endif %}
+  </script>
   </head>
 
   <body>
@@ -37,16 +46,17 @@
     <section id="account-settings" class="account-settings">
       <div class="container">
         <div class="section-title">
+          <span>Account Settings</span>
           <h2>Account Settings</h2>
         </div>
-        
+
         <!-- Logout Button -->
         <div class="text-center mt-4">
           <a href="/logout" class="btn btn-danger logout-button">Logout</a>
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
+          <div class="col-lg-4" data-aos="fade-up">
             <div class="icon-box" onclick="navigateTo('/update-information')">
               <div class="icon">
                 <i class="bx bx-user"></i>
@@ -56,7 +66,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
+          <div class="col-lg-4" data-aos="fade-up">
             <div class="icon-box" onclick="navigateTo('/change-password')">
               <div class="icon">
                 <i class="bx bx-lock"></i>
@@ -66,17 +76,17 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
-            <div class="icon-box" onclick="navigateTo('/email-preferences')">
+          <div class="col-lg-4" data-aos="fade-up">
+            <div class="icon-box" onclick="navigateTo('/delete-account')">
               <div class="icon">
-                <i class="bx bx-envelope"></i>
+                <i class="bx bx-trash"></i>
               </div>
-              <h4>Email Preferences</h4>
-              <p>Manage your email preferences and choose which types of emails you want to receive.</p>
+              <h4>Delete Accounts</h4>
+              <p>Delete your account and all associated data.</p>
             </div>
           </div>
         </div>
-      </br>
+        <br />
         <button onclick="navigateTo('/dashboard')" type="submit" class="button button-block">Go Back</button>
       </div>
     </section>

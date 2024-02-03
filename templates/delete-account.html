@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Rikaz - Update Information</title>
+    <title>Rikaz - Delete Accoun</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -33,7 +33,7 @@
           alert("{{ alert_message }}");
       }
       {% endif %}
-  </script>
+    </script>
   </head>
 
   <body>
@@ -42,33 +42,22 @@
     <!-- End Header -->
     <br /><br />
 
-    <!-- ======= Update Information Section ======= -->
-
-    <!--    <div class="section-title">
-      <h2>Account Settings</h2>
-    </div>    -->
-
+    <!-- ======= Delete Account Section ======= -->
     <div class="form update-info">
       <div class="tab-content">
-        <h1>Update Informations</h1>
-        <form action="{{ url_for('update_information') }}" method="POST">
-          <div class="field-wrap">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" value="{{ user.email }}" required />
-
-            <label for="first_name">First Name:</label>
-            <input type="text" name="first_name" id="first_name" value="{{ user.first_name }}" required />
-
-            <label for="last_name">Last Name:</label>
-            <input type="text" name="last_name" id="last_name" value="{{ user.last_name }}" required />
-          </div>
-          <button type="submit" class="button button-block">Update Information</button>
+        <h1>Delete Account</h1>
+        <form action="{{ url_for('delete_account') }}" method="POST">
+          <b><p>Are you sure you want to delete your account?</p></b>
+          <p>
+            This action cannot be undone. &nbsp;<span class="req">*</span>
+          </p>
+          <button type="submit" class="button button-block">Delete Account</button>
           <br />
           <button type="button" onclick="window.location.href='/account-settings'" class="button button-block">Cancel</button>
         </form>
       </div>
     </div>
-    <!-- End Update Information Section -->
+    <!-- End Delete Account Section -->
 
     <!-- ======= Footer ======= -->
     {% include 'footer.html' %}

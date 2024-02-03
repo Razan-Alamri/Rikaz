@@ -1289,12 +1289,13 @@ input[type="checkbox"],
     margin-right: 10px;
 }
 
-.dashboard .icon-box {
+.dashboard .icon-box,
+.account-settings .icon-box {
     text-align: center;
     padding: 80px 20px;
     transition: all ease-in-out 0.3s;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    height: 400px;
+    height: 300px;
     /* Adjust the height value as needed */
 }
 
@@ -1500,13 +1501,16 @@ th {
 # Account Settings 
 --------------------------------------------------------------*/
 
-.account-settings .icon-box {
-    text-align: center;
-    padding: 80px 20px;
-    transition: all ease-in-out 0.3s;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    height: 400px;
-    /* Adjust the height value as needed */
+.account-settings .section-title h2,
+.dashboard .section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.1px;
+    padding-bottom: 0;
+    color: #191919;
+    position: relative;
+    z-index: 2;
 }
 
 .account-settings .icon-box .icon {
@@ -1606,4 +1610,8 @@ th {
     margin-left: 0.4cm;
     margin-top: 0.2cm;
     width: 97%;
+}
+
+.update-info .req {
+    color: #e60a0a;
 }

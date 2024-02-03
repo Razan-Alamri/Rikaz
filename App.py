@@ -268,11 +268,6 @@ def analysis_results(result_id):
         # User is not logged in, redirect to the signup-login page
         return redirect("/signup-login")
   
-# # Analysis results page
-# @app.route("/analysis-results", methods=["GET", "POST"])
-# def analysis_results():
-#     return render_template("analysis-results.html")
-
 # Export results page
 @app.route("/export-results")
 def export_results():
@@ -283,8 +278,7 @@ def export_results():
 def account_settings():
     user_id = session.get('user_id')
     if not user_id:
-        flash('Please log in to access this page.', 'error')
-        return redirect(url_for('signup_login'))
+        return redirect("/signup-login")
 
     conn = get_db()
     cursor = conn.cursor()
@@ -298,10 +292,10 @@ def account_settings():
             'first_name': user_info[1],
             'last_name': user_info[2],
         }
-        return render_template('account-settings.html', user=user)
+        return render_template('account-settings.html', user=user, alert_message=None)
 
-    flash('User not found.', 'error')
-    return redirect(url_for('signup_login'))
+    return redirect("/signup-login")
+
 
 # Update Information page
 @app.route('/update-information', methods=['GET', 'POST'])
@@ -310,9 +304,8 @@ def update_information():
         # Handle GET request (display form)
         user_id = session.get('user_id')
         if not user_id:
-            flash('Please log in to access this page.', 'error')
-            return redirect(url_for('signup_login'))
-        
+            return redirect("/signup-login")
+
         conn = get_db()
         cursor = conn.cursor()
         cursor.execute('SELECT Email, firstName, lastName FROM User WHERE userID = ?', (user_id,))
@@ -325,10 +318,9 @@ def update_information():
                 'first_name': user_info[1],
                 'last_name': user_info[2],
             }
-            return render_template('update-information.html', user=user)
+            return render_template('update-information.html', user=user, alert_message=None)
 
-        flash('User not found.', 'error')
-        return redirect(url_for('signup_login'))
+        return redirect("/signup-login")
 
     elif request.method == 'POST':
         # Handle POST request (form submission)
@@ -339,8 +331,19 @@ def update_information():
 
         # Validate the form data
         if not is_valid_email(email):
-            flash('Invalid email address!', 'error')
-            return redirect(url_for('account_settings'))
+            conn = get_db()
+            cursor = conn.cursor()
+            cursor.execute('SELECT Email, firstName, lastName FROM User WHERE userID = ?', (user_id,))
+            user_info = cursor.fetchone()
+            cursor.close()
+
+            if user_info:
+                user = {
+                    'email': user_info[0],
+                    'first_name': user_info[1],
+                    'last_name': user_info[2],
+                }
+                return render_template('update-information.html', user=user, alert_message='Invalid email address!')
 
         conn = get_db()
         cursor = conn.cursor()
@@ -353,16 +356,90 @@ def update_information():
             )
             conn.commit()
 
-            flash('User information updated successfully!', 'success')
-            return redirect(url_for('account_settings'))
+            return render_template('account-settings.html', alert_message='User information updated successfully!')
 
         except sqlite3.Error as e:
-            flash('An error occurred while updating user information: ' + str(e), 'error')
-            return redirect(url_for('account_settings'))
+            return render_template('account-settings.html', alert_message='An error occurred while updating user information: ' + str(e))
 
         finally:
             cursor.close()
-    
+            
+# Change Password page
+@app.route('/change-password', methods=['GET', 'POST'])
+def change_password():
+    if request.method == 'GET':
+        # Handle GET request (display form)
+        return render_template('change-password.html', alert_message=None)
+
+    elif request.method == 'POST':
+        # Handle POST request (form submission)
+        old_password = request.form.get('old_password')
+        new_password = request.form.get('new_password')
+        confirm_password = request.form.get('confirm_password')
+        user_id = session.get('user_id')
+
+        # Retrieve the user from the database based on the user ID
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM User WHERE userID=?", (user_id,))
+        user = cursor.fetchone()
+
+        # Validate the old password
+        if not user or user[4] != old_password:
+            return render_template('change-password.html', alert_message='Invalid old password')
+
+        # Validate the new password and confirm password
+        password_error = is_valid_password(new_password)
+        if password_error:
+            return render_template('change-password.html', alert_message=password_error)
+
+        if new_password != confirm_password:
+            return render_template('change-password.html', alert_message='New password and confirm password do not match')
+
+        try:
+            # Update the user's password in the database
+            cursor.execute("UPDATE User SET Password=? WHERE userID=?", (new_password, user_id))
+            db.commit()
+
+            return render_template('account-settings.html', alert_message='Password changed successfully')
+
+        except sqlite3.Error as e:
+            return render_template('account-settings.html', alert_message='An error occurred while changing the password: ' + str(e))
+
+        finally:
+            cursor.close()
+            
+# Delete Account page
+@app.route('/delete-account', methods=['GET', 'POST'])
+def delete_account():
+    if request.method == 'POST':
+        user_id = session.get('user_id')
+
+        conn = get_db()
+        cursor = conn.cursor()
+
+        try:
+            # Delete the user account and associated data from the database
+            cursor.execute('DELETE FROM User WHERE userID = ?', (user_id,))
+            cursor.execute('DELETE FROM SatelliteImage WHERE userID = ?', (user_id,))
+            cursor.execute('DELETE FROM Result WHERE userID = ?', (user_id,))
+            conn.commit()
+
+            # Clear the session data
+            session.clear()
+
+            alert_message = 'Account deleted successfully!'
+            return render_template('signup-login.html', alert_message=alert_message)
+
+        except sqlite3.Error as e:
+            return render_template('account-settings.html', alert_message='An error occurred while deleting the account: ' + str(e))
+
+        finally:
+            cursor.close()
+
+    return render_template('delete-account.html')
+        
+        
 # Logout route
 @app.route("/logout")
 def logout():
