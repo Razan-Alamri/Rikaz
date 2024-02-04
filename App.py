@@ -419,6 +419,10 @@ def delete_account():
         cursor = conn.cursor()
 
         try:
+            # ***************************************************************************************
+            # ************************** Check to delet all related data ****************************
+            # ***************************************************************************************
+            
             # Delete the user account and associated data from the database
             cursor.execute('DELETE FROM User WHERE userID = ?', (user_id,))
             cursor.execute('DELETE FROM SatelliteImage WHERE userID = ?', (user_id,))
