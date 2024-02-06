@@ -4,6 +4,9 @@ import re
 import sqlite3
 from flask import Flask, flash, render_template, g, request, session, redirect, url_for
 from datetime import datetime 
+import requests
+from flask_mail import Mail, Message
+from secrets import token_urlsafe
 
 # The Flask application is created and configured.
 # The database satellite_image, secret key.
@@ -11,6 +14,7 @@ app = Flask(__name__, static_url_path='/static', static_folder='static')
 app.config['DATABASE'] = 'Rikaz.db'
 app.config['SECRET_KEY'] = os.urandom(24)
 
+mail = Mail(app)
 
 # Database connection setup and teardown functions
 def get_db():
@@ -51,12 +55,16 @@ def signup_login():
             
             password_error =  is_valid_password(password)
             if password_error:
-                return render_template("signup-login.html", alert_message=password_error)
+                return render_template("signup-login.html", alert_message=password_error)  
 
             # Check if the email is already in use
             if is_email_duplicate(email):
                 return render_template("signup-login.html", alert_message="Email already in use")
 
+            # Check if the email is deliverable
+            if not is_email_deliverable(email):
+                return render_template("signup-login.html", alert_message="Email is not deliverable")
+            
             # Create a new user in the database
             db = get_db()
             cursor = db.cursor()
@@ -117,6 +125,24 @@ def is_valid_password(password):
 
     return None
 
+# Check if the email is deliverable
+def is_email_deliverable(email):
+    api_key = 'ema_live_NjAym4abmLbAglSpxUXVjaQ3qclLDXWJnqQiGw9c'
+    url = f'https://api.emailvalidation.io/v1/info?apikey={api_key}&email={str(email)}'
+    response = requests.get(url)
+    if response.status_code == 200:
+         json_res = response.json()
+         format_valid = json_res['format_valid']
+         mx_found = json_res['mx_found']
+         smtp_check = json_res['smtp_check']
+         state = json_res['state']
+         check = format_valid and mx_found and smtp_check and state == 'deliverable'
+         print(str(format_valid) + str(mx_found) + str(smtp_check) + state)
+         print(check)
+         return check
+    return False
+
+
 # Check if the email is duplicate
 def is_email_duplicate(email):
     # Check if the email already exists in the database
@@ -125,6 +151,62 @@ def is_email_duplicate(email):
     cursor.execute("SELECT * FROM User WHERE Email=?", (email,))
     user = cursor.fetchone()
     return user is not None
+
+# ***************************************************************************************
+# ****************************** Compleat Forgot Password *******************************
+# ***************************************************************************************
+#Forgot Password page
+@app.route("/forgot-password", methods=["GET", "POST"])
+def forgot_password():
+    if request.method == "POST":
+        email = request.form.get("email")
+
+        # Check if the email exists in the database
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM User WHERE Email=?", (email,))
+        user = cursor.fetchone()
+
+        if user:
+            # Generate a password reset token
+            token = generate_reset_token(email)
+
+            # Send the password reset email
+            send_reset_email(email, token)
+
+            flash("An email with instructions to reset your password has been sent.")
+            return redirect("/forgot-password")
+        else:
+            flash("Email not found.")
+            return redirect("/forgot-password")
+
+    return render_template("forgot-password.html")
+
+# Generate a reset token for the given email address
+def generate_reset_token(email):
+    token = token_urlsafe(32)
+    
+    # Store the token in the database or any other storage mechanism
+    # You can associate the token with the email address for verification later
+    
+    return token
+
+# Send the password reset email
+def send_reset_email(email, token):
+    # Create a password reset URL with the token
+    reset_url = f"http://your_website.com/reset-password?token={token}"
+    
+    # Compose the email message
+    subject = "Password Reset"
+    body = f"Click the following link to reset your password: {reset_url}"
+    
+    # Send the email
+    msg = Message(subject, recipients=[email], body=body)
+    mail.send(msg)
+
+# ***************************************************************************************
+# ****************************** Compleat Forgot Password *******************************
+# ***************************************************************************************
 
 # Dashboard page
 @app.route("/dashboard")
