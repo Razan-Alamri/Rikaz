@@ -1,4 +1,5 @@
 import base64
+import bcrypt
 import os
 import re
 import sqlite3
@@ -70,7 +71,7 @@ def signup_login():
             cursor = db.cursor()
             cursor.execute(
                 "INSERT INTO User (firstName, lastName, Email, Password) VALUES (?, ?, ?, ?)",
-                (first_name, last_name, email, password)
+                (first_name, last_name, email, hash_password(password))
             )
             db.commit()
 
@@ -86,7 +87,7 @@ def signup_login():
             user = cursor.fetchone()
 
             # Validate the email and password
-            if not user or user[4] != password:
+            if not user or not verify_password(password, user[4]):
                 return render_template("signup-login.html", alert_message="Invalid email or password")
             
             # Store the user ID in the session
@@ -98,6 +99,7 @@ def signup_login():
     # Render the signup-login page for GET requests
     return render_template("signup-login.html")
 
+
 # Check if the email is valid
 def is_valid_email(email):
     # Regular expression pattern for email validation
@@ -108,6 +110,7 @@ def is_valid_email(email):
         return True
     else:
         return False
+
 
 # Check if the password is valid
 def is_valid_password(password):
@@ -124,6 +127,7 @@ def is_valid_password(password):
         return "Password must contain at least one digit."
 
     return None
+
 
 # Check if the email is deliverable
 def is_email_deliverable(email):
@@ -151,6 +155,18 @@ def is_email_duplicate(email):
     cursor.execute("SELECT * FROM User WHERE Email=?", (email,))
     user = cursor.fetchone()
     return user is not None
+
+
+# Hash the password
+def hash_password(password):
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    return hashed_password.decode('utf-8')
+
+
+# Verify the password
+def verify_password(password, hashed_password):
+    return bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8'))
+
 
 # ***************************************************************************************
 # ****************************** Compleat Forgot Password *******************************
@@ -182,6 +198,7 @@ def forgot_password():
 
     return render_template("forgot-password.html")
 
+
 # Generate a reset token for the given email address
 def generate_reset_token(email):
     token = token_urlsafe(32)
@@ -190,6 +207,7 @@ def generate_reset_token(email):
     # You can associate the token with the email address for verification later
     
     return token
+
 
 # Send the password reset email
 def send_reset_email(email, token):
@@ -225,6 +243,7 @@ def dashboard():
     else:
         # User is not logged in, redirect to the signup-login page
         return redirect("/signup-login")
+
 
 # Upload Satellite Image page
 @app.route("/satellite-upload", methods=["GET", "POST"])
@@ -293,6 +312,7 @@ def satellite_upload():
     # Render the upload satellite image page for GET requests
     return render_template("satellite-upload.html")
 
+
 # Previous Results page
 @app.route("/previous-results")
 def previous_results():
@@ -310,6 +330,7 @@ def previous_results():
 
     # Render the previous results template and pass the results to it
     return render_template("previous-results.html", previous_results=previous_results)
+
 
 # Analysis Results page
 @app.route("/analysis-results-<int:result_id>")
@@ -350,10 +371,12 @@ def analysis_results(result_id):
         # User is not logged in, redirect to the signup-login page
         return redirect("/signup-login")
   
+  
 # Export results page
 @app.route("/export-results")
 def export_results():
     return render_template("export-results.html")
+      
       
 # Account Settings page
 @app.route('/account-settings')
@@ -446,6 +469,7 @@ def update_information():
         finally:
             cursor.close()
             
+            
 # Change Password page
 @app.route('/change-password', methods=['GET', 'POST'])
 def change_password():
@@ -467,7 +491,7 @@ def change_password():
         user = cursor.fetchone()
 
         # Validate the old password
-        if not user or user[4] != old_password:
+        if not user or not verify_password(old_password, user[4]):
             return render_template('change-password.html', alert_message='Invalid old password')
 
         # Validate the new password and confirm password
@@ -480,7 +504,7 @@ def change_password():
 
         try:
             # Update the user's password in the database
-            cursor.execute("UPDATE User SET Password=? WHERE userID=?", (new_password, user_id))
+            cursor.execute("UPDATE User SET Password=? WHERE userID=?", ( hash_password(new_password), user_id))
             db.commit()
 
             return render_template('account-settings.html', alert_message='Password changed successfully')
@@ -490,6 +514,7 @@ def change_password():
 
         finally:
             cursor.close()
+            
             
 # Delete Account page
 @app.route('/delete-account', methods=['GET', 'POST'])
