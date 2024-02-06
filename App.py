@@ -14,6 +14,11 @@ from secrets import token_urlsafe
 app = Flask(__name__, static_url_path='/static', static_folder='static')
 app.config['DATABASE'] = 'Rikaz.db'
 app.config['SECRET_KEY'] = os.urandom(24)
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'turboguides@gmail.com'
+app.config['MAIL_PASSWORD'] = 'wfwx gxvw wink awit'
 
 mail = Mail(app)
 
@@ -550,6 +555,28 @@ def delete_account():
 
     return render_template('delete-account.html')
         
+
+@app.route('/contact-us', methods=['POST'])
+def handle_contact_form():
+    try:
+        # Retrieve the form data
+        name = request.form.get('name')
+        email = request.form.get('email')
+        subject = request.form.get('subject')
+        message = request.form.get('message')
+
+        # Send an email
+        msg = Message(subject, sender='turboguides@gmail.com', recipients=['turboguides@gmail.com'])
+        msg.body = f"Name: {name}\nEmail: {email}\nSubject: {subject}\nMessage: {message}"
+        mail.send(msg)
+
+        # Return a success message to the user
+        return '<div class="sent-message">Your message has been sent. Thank you!</div>'
+    except Exception as e:
+        # Return an error message to the user
+        error_message = f'An error occurred: {str(e)}'
+        return render_template('error.html', error_message=error_message), 500
+
         
 # Logout route
 @app.route("/logout")
