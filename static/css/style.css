@@ -834,7 +834,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit] {
-    background: #A17649;
+    background: #8EA7BC;
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -1069,7 +1069,7 @@ html {
 
 a {
     text-decoration: none;
-    color: #A17649;
+    color: #8EA7BC;
     transition: .5s ease;
 }
 
@@ -1113,12 +1113,12 @@ a:hover {
 }
 
 .tab-group li a:hover {
-    background: #A17649;
+    background: #8EA7BC;
     color: #ffffff;
 }
 
 .tab-group .active a {
-    background: #A17649;
+    background: #8EA7BC;
     color: #ffffff;
 }
 
@@ -1159,7 +1159,7 @@ label {
 label .req,
 small {
     margin: 2px;
-    color: #A17649;
+    color: #8EA7BC;
 }
 
 label.active {
@@ -1245,7 +1245,7 @@ input[type="checkbox"],
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
-    background: #A17649;
+    background: #8EA7BC;
     color: #ffffff;
     transition: all 0.5s ease;
     -webkit-appearance: none;
@@ -1258,7 +1258,7 @@ input[type="checkbox"],
 
 .button:hover,
 .button:focus {
-    background: #A17649;
+    background: #8EA7BC;
 }
 
 .button-block {
@@ -1303,7 +1303,7 @@ input[type="checkbox"],
     margin: 0 auto;
     width: 64px;
     height: 64px;
-    background: #A17649;
+    background: #8EA7BC;
     transition: all 0.3s ease-out 0s;
     display: flex;
     align-items: center;
@@ -1350,8 +1350,8 @@ input[type="checkbox"],
 }
 
 .dashboard .icon-box:hover {
-    background: #A17649;
-    border-color: #A17649;
+    background: #8EA7BC;
+    border-color: #8EA7BC;
     padding: 70px 20px 90px 20px;
 }
 
@@ -1360,7 +1360,7 @@ input[type="checkbox"],
 }
 
 .dashboard .icon-box:hover .icon i {
-    color: #A17649;
+    color: #8EA7BC;
 }
 
 .dashboard .icon-box:hover .icon::before {
