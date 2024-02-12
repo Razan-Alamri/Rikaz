@@ -41,3 +41,4 @@ Werkzeug==2.2.3
 WTForms==3.0.1
 yarl==1.9.2
 bcrypt==3.2.0
+Flask-Mail==0.9.1
