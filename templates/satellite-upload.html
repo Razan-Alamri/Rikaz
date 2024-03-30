@@ -45,9 +45,14 @@
                     <label>Image Name: <span class="req">*</span></label>
                     <input type="text" id="image-name" name="image-name" required autocomplete="off">
                 </div>
-                <div class="field-wrap">
-                    <label for="satellite-name">Satellite Name: <span class="req">*</span></label>
-                    <input type="text" id="satellite-name" name="satellite-name" required autocomplete="off">
+                <div class="select-wrap">
+                    <label>Satellite Name: <span class="req">*</span></label>
+                    <select id="satellite-name" name="satellite-name" required>
+                        <option value="" disabled selected></option>
+                        <option value="ASTER">ASTER</option>
+                        <option value="Landsat">Landsat</option>
+                        <option value="Sentinel">Sentinel</option>
+                    </select>
                 </div>
                 <div class="field-wrap">
                     <label for="coordinates">Coordinates: <span class="req">*</span></label>
