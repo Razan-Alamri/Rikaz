@@ -76,7 +76,7 @@ def signup_login():
             cursor = db.cursor()
             cursor.execute(
                 "INSERT INTO User (firstName, lastName, Email, Password) VALUES (?, ?, ?, ?)",
-                (first_name, last_name, email, password)
+                (first_name, last_name, email, hash_password(password))
             )
             db.commit()
 
@@ -92,7 +92,7 @@ def signup_login():
             user = cursor.fetchone()
 
             # Validate the email and password
-            if not user or user[4] != password:
+            if not user or not verify_password(password, user[4]):
                 return render_template("signup-login.html", alert_message="Invalid email or password")
             
             # Store the user ID in the session
