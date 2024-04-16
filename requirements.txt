@@ -47,5 +47,5 @@ gdal==2.4.0
 rasterio>=1.2.0
 tensorflow==2.15.0
 tensorflow-estimator==2.15.0
-tensorflow-intel==2.15.0
+tensorflow-intel==2.11.0
 tensorflow-io-gcs-filesystem==0.31.0
