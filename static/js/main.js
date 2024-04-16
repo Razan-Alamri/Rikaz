@@ -240,11 +240,3 @@
     });
 
 })()
-
-
-// Display an alert box with the error message
-if (alert_message) {
-    window.onload = function() {
-        alert("{{ alert_message }}");
-    };
-}
