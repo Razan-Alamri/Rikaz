@@ -49,4 +49,4 @@ tensorflow==2.11.0
 tensorflow-estimator==2.11.0
 tensorflow-intel==0.0.1
 tensorflow-io-gcs-filesystem==0.31.0
-matplotlib==3.8.0
+matplotlib==3.5.3
