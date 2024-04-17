@@ -648,28 +648,22 @@ def delete_account():
             cursor.close()
 
     return render_template('delete-account.html')
+     
         
-
+# Contact Us route
 @app.route('/contact-us', methods=['POST'])
 def handle_contact_form():
-    try:
-        # Retrieve the form data
-        name = request.form.get('name')
-        email = request.form.get('email')
-        subject = request.form.get('subject')
-        message = request.form.get('message')
 
-        # Send an email
-        msg = Message(subject, sender='rikazprojeect@gmail.com', recipients=['rikazprojeect@gmail.com'])
-        msg.body = f"Name: {name}\nEmail: {email}\nSubject: {subject}\nMessage: {message}"
-        mail.send(msg)
+    # Retrieve the form data
+    name = request.form.get('name')
+    email = request.form.get('email')
+    subject = request.form.get('subject')
+    message = request.form.get('message')
 
-        # Return a success message to the user
-        return '<div class="sent-message">Your message has been sent. Thank you!</div>'
-    except Exception as e:
-        # Return an error message to the user
-        error_message = f'An error occurred: {str(e)}'
-        return render_template('error.html', error_message=error_message), 500
+    # Send an email
+    msg = Message(subject, sender='rikazprojeect@gmail.com', recipients=['rikazprojeect@gmail.com'])
+    msg.body = f"Name: {name}\nEmail: {email}\nSubject: {subject}\nMessage: {message}"
+    mail.send(msg)
 
         
 # Logout route
@@ -679,6 +673,11 @@ def logout():
     session.clear()
     # Redirect the user to the login page
     return redirect("/signup-login")
+
+
+# Recommended citation:
+# Tripathy, P. pyrsgis: A Python package for remote sensing and GIS data processing. V0.4.
+# Available at: https://github.com/PratyushTripathy/pyrsgis
 
 from copy import deepcopy
 import numpy as np
@@ -885,6 +884,10 @@ def imageChipsFromFile(infile, y_size=5, x_size=5):
     ds, data_arr = read(infile)
 
     return(imageChipsFromArray(data_arr, y_size=y_size, x_size=x_size))
+
+# End of citation:
+# Tripathy, P. pyrsgis: A Python package for remote sensing and GIS data processing. V0.4.
+# Available at: https://github.com/PratyushTripathy/pyrsgis
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
