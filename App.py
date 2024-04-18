@@ -1,13 +1,13 @@
+# Import the necessary modules and functions
 import base64
 import bcrypt
 import os
 import re
 import sqlite3
-from flask import Flask, flash, render_template, g, request, session, redirect, url_for
+from flask import Flask, render_template, g, request, session, redirect, url_for
 from datetime import datetime
 import requests
 from flask_mail import Mail, Message
-from secrets import token_urlsafe
 from pyrsgis import raster
 from pyrsgis.ml import imageChipsFromArray
 import matplotlib.pyplot as plt
@@ -58,7 +58,6 @@ def close_connection(exception):
 def index():
     return render_template("index.html")
 
-# Signup/Login page
 # Signup/Login page
 @app.route("/signup-login", methods=["GET", "POST"])
 def signup_login():
@@ -238,11 +237,6 @@ def satellite_upload():
             # Save the file
             satellite_image.save(temp_file_path)
 
-            
-        # Perform any necessary data processing or validation
-        # For example, you can save the satellite_image to a specified directory
-        # and store the relevant information in the database
-
         # Save the uploaded satellite_image
         if satellite_image:
             satellite_image_data = satellite_image.read()
@@ -263,21 +257,6 @@ def satellite_upload():
 
         db.commit()
         cursor.close()
-
-        # # Pass the form data to the analysis results template
-        # analysis_results = {
-        #     "image_name": image_name,
-        #     "acquisition_date": datetime.now(),
-        #     "satellite_name": satellite_name,
-        #     "coordinates": coordinates,
-        #     "area_name": area_name,
-        #     "spatial_resolution": spatial_resolution,
-            
-        #     # ***************************************************************************************
-        #     # **************************** Change After Finsh Map Model *****************************
-        #     # ***************************************************************************************
-        #     "map_data": base64.b64encode(satellite_image_data).decode("utf-8")
-        # }
 
         # Redirect the user to the analysis results page
         # return render_template("analysis-results.html", analysis_results=analysis_results)
@@ -664,6 +643,7 @@ def handle_contact_form():
     msg = Message(subject, sender='rikazprojeect@gmail.com', recipients=['rikazprojeect@gmail.com'])
     msg.body = f"Name: {name}\nEmail: {email}\nSubject: {subject}\nMessage: {message}"
     mail.send(msg)
+    return 'Email sent successfully'
 
         
 # Logout route
