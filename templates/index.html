@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -25,122 +26,123 @@
 
     <!-- Template Main CSS File -->
     <link href="static/css/style.css" rel="stylesheet" />
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- ======= Header ======= -->
     <header id="header" class="d-flex align-items-center">
-      <div class="container d-flex align-items-center justify-content-between">
-        <h1 class="logo"><a href="index.html">Rikaz</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo"><img src="static/img/logo.png" alt="" class="img-fluid"></a> -->
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="index.html">Rikaz</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo"><img src="static/img/logo.png" alt="" class="img-fluid"></a> -->
 
-        <nav id="navbar" class="navbar">
-          <ul>
-            <li>
-              <a class="nav-link scrollto active" href="#hero">Home</a>
-            </li>
-            <li>
-              <a class="nav-link scrollto" href="#about">About</a>
-            </li>
-            <li>
-              <a class="nav-link scrollto" href="#services">Services</a>
-            </li>
-            <li>
-              <a class="nav-link scrollto" href="#contact">Contact Us</a>
-            </li>
-            <!-- <li><a class="nav-link scrollto" href="signup-login.html#signup">Sign Up</a></li> -->
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
-        <!-- .navbar -->
-      </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li>
+                        <a class="nav-link scrollto active" href="#hero">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-link scrollto" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="nav-link scrollto" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="nav-link scrollto" href="#contact">Contact Us</a>
+                    </li>
+                    <!-- <li><a class="nav-link scrollto" href="signup-login.html#signup">Sign Up</a></li> -->
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+        </div>
     </header>
     <!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
-      <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
-        <h1>Welcome to Rikaz</h1>
-        <h2>Analyzing satellite images for mineral exploration using deep learning model</h2>
-        <a href="{{ url_for('signup_login') }}" class="btn-get-started scrollto">Log In - Sign Up</a>
-      </div>
+        <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
+            <h1>Welcome to Rikaz</h1>
+            <h2>Analyzing satellite images for mineral exploration using deep learning model</h2>
+            <a href="{{ url_for('signup_login') }}" class="btn-get-started scrollto">Log In - Sign Up</a>
+        </div>
     </section>
     <!-- End Hero -->
 
     <main id="main">
-      <!-- ======= About Section ======= -->
-      <section id="about" class="about">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-              <img src="static/img/about.jpg" class="img-fluid" alt="RIKAZ Logo" />
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                        <img src="static/img/about.jpg" class="img-fluid" alt="RIKAZ Logo" />
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+                        <h3>Welcome to RIKAZ - Your Geological Analysis Platform</h3>
+                        <p class="fst-italic">RIKAZ is an advanced web-based platform that revolutionizes geological analysis using cutting-edge technology and deep learning algorithms.</p>
+                        <ul>
+                            <li>
+                                <i class="bi bi-check-circle"></i> Access powerful image analysis tools to unlock valuable insights from satellite images.
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle"></i> Identify and classify minerals with high accuracy and efficiency.
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle"></i> Save time and make informed decisions in geological exploration and research.
+                            </li>
+                        </ul>
+                        <p>Our platform harnesses the power of artificial intelligence to analyze geological features, patterns, and mineral compositions present in satellite images. With RIKAZ, geologists can gain a deeper understanding of Earth's resources
+                            and make data-driven decisions.</p>
+                        <p>Join RIKAZ today and unlock the potential of advanced geological analysis. Experience the convenience, accuracy, and speed that our platform offers. Let us help you uncover the secrets of the Earth's surface.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
-              <h3>Welcome to RIKAZ - Your Geological Analysis Platform</h3>
-              <p class="fst-italic">RIKAZ is an advanced web-based platform that revolutionizes geological analysis using cutting-edge technology and deep learning algorithms.</p>
-              <ul>
-                <li>
-                  <i class="bi bi-check-circle"></i> Access powerful image analysis tools to unlock valuable insights from satellite images.
-                </li>
-                <li>
-                  <i class="bi bi-check-circle"></i> Identify and classify minerals with high accuracy and efficiency.
-                </li>
-                <li>
-                  <i class="bi bi-check-circle"></i> Save time and make informed decisions in geological exploration and research.
-                </li>
-              </ul>
-              <p>Our platform harnesses the power of artificial intelligence to analyze geological features, patterns, and mineral compositions present in satellite images. With RIKAZ, geologists can gain a deeper understanding of Earth's resources and make data-driven decisions.</p>
-              <p>Join RIKAZ today and unlock the potential of advanced geological analysis. Experience the convenience, accuracy, and speed that our platform offers. Let us help you uncover the secrets of the Earth's surface.</p>
+        </section>
+        <!-- End About Section -->
+
+        <!-- ======= Why Us Section ======= -->
+        <section id="why-us" class="why-us">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4" data-aos="fade-up">
+                        <div class="box">
+                            <span>01</span>
+                            <h4>Advanced Geological Analysis</h4>
+                            <p>Utilize our cutting-edge technology and deep learning algorithms to perform comprehensive geological analysis with high accuracy.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+                        <div class="box">
+                            <span>02</span>
+                            <h4>Data-Driven Decision Making</h4>
+                            <p>Make informed decisions based on the valuable insights extracted from satellite images and geological data.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                        <div class="box">
+                            <span>03</span>
+                            <h4>Efficiency and Time-Saving</h4>
+                            <p>Save time in geological exploration and research with our platform's efficient analysis tools, allowing you to focus on critical tasks.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <!-- End About Section -->
+        </section>
+        <!-- End Why Us Section -->
 
-      <!-- ======= Why Us Section ======= -->
-      <section id="why-us" class="why-us">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4" data-aos="fade-up">
-              <div class="box">
-                <span>01</span>
-                <h4>Advanced Geological Analysis</h4>
-                <p>Utilize our cutting-edge technology and deep learning algorithms to perform comprehensive geological analysis with high accuracy.</p>
-              </div>
-            </div>
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-title">
+                    <span>Services</span>
+                    <h2>Services</h2>
+                    <p>The RIKAZ system offers a range of services tailored for geologists</p>
+                </div>
 
-            <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
-              <div class="box">
-                <span>02</span>
-                <h4>Data-Driven Decision Making</h4>
-                <p>Make informed decisions based on the valuable insights extracted from satellite images and geological data.</p>
-              </div>
-            </div>
-
-            <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-              <div class="box">
-                <span>03</span>
-                <h4>Efficiency and Time-Saving</h4>
-                <p>Save time in geological exploration and research with our platform's efficient analysis tools, allowing you to focus on critical tasks.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End Why Us Section -->
-
-      <!-- ======= Services Section ======= -->
-      <section id="services" class="services">
-        <div class="container">
-          <div class="section-title">
-            <span>Services</span>
-            <h2>Services</h2>
-            <p>The RIKAZ system offers a range of services tailored for geologists</p>
-          </div>
-
-          <div class="row">
-            <!--         <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                <div class="row">
+                    <!--         <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-user"></i></div>
                             <h4><a href="#">User Registration</a></h4>
@@ -148,151 +150,152 @@
                         </div>
                     </div>         -->
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
-              <div class="icon-box">
-                <div class="icon">
-                  <i class="bx bx-cloud-upload"></i>
-                </div>
-                <h4>Satellite Image Upload</h4>
-                <p>Geologists can upload satellite images of the target areas for mineral exploration and analysis.</p>
-              </div>
-            </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="bx bx-cloud-upload"></i>
+                            </div>
+                            <h4>Satellite Image Upload</h4>
+                            <p>Geologists can upload satellite images of the target areas for mineral exploration and analysis.</p>
+                        </div>
+                    </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon-box">
-                <div class="icon">
-                  <i class="bx bx-cog"></i>
-                </div>
-                <h4>Deep Learning Analysis</h4>
-                <p>The system processes uploaded satellite images using a deep learning model to identify and classify minerals based on patterns, colors, and geological features.</p>
-              </div>
-            </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="bx bx-cog"></i>
+                            </div>
+                            <h4>Deep Learning Analysis</h4>
+                            <p>The system processes uploaded satellite images using a deep learning model to identify and classify minerals based on patterns, colors, and geological features.</p>
+                        </div>
+                    </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-md-0" data-aos="fade-up" data-aos-delay="450">
-              <div class="icon-box">
-                <div class="icon">
-                  <i class="bx bx-chart"></i>
-                </div>
-                <h4>Real-time Analysis</h4>
-                <p>The system provides geologists with real-time analysis results, allowing them to make informed decisions during mineral exploration.</p>
-              </div>
-            </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-md-0" data-aos="fade-up" data-aos-delay="450">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="bx bx-chart"></i>
+                            </div>
+                            <h4>Real-time Analysis</h4>
+                            <p>The system provides geologists with real-time analysis results, allowing them to make informed decisions during mineral exploration.</p>
+                        </div>
+                    </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="900">
-              <div class="icon-box">
-                <div class="icon">
-                  <i class="bx bx-export"></i>
-                </div>
-                <h4>Export Analysis Results</h4>
-                <p>Geologists can export the analysis results in various formats, including CSV or PDF, for further analysis or reporting purposes.</p>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
-              <div class="icon-box">
-                <div class="icon">
-                  <i class="bx bx-data"></i>
-                </div>
-                <h4>Data Management</h4>
-                <p>The system stores and manages geological data in a secure database, allowing geologists to access and retrieve previous analysis results.</p>
-              </div>
-            </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="900">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="bx bx-export"></i>
+                            </div>
+                            <h4>Export Analysis Results</h4>
+                            <p>Geologists can export the analysis results in various formats, including CSV or PDF, for further analysis or reporting purposes.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="bx bx-data"></i>
+                            </div>
+                            <h4>Data Management</h4>
+                            <p>The system stores and manages geological data in a secure database, allowing geologists to access and retrieve previous analysis results.</p>
+                        </div>
+                    </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
-              <div class="icon-box">
-                <div class="icon">
-                  <i class="bx bx-check"></i>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="bx bx-check"></i>
+                            </div>
+                            <h4>Feedback and Improvement</h4>
+                            <p>Geologists can provide feedback on the accuracy of analysis results to refine and improve the deep learning model used in the system.</p>
+                        </div>
+                    </div>
                 </div>
-                <h4>Feedback and Improvement</h4>
-                <p>Geologists can provide feedback on the accuracy of analysis results to refine and improve the deep learning model used in the system.</p>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <!-- End Services Section -->
+        </section>
+        <!-- End Services Section -->
 
-      <!-- ======= Cta Section ======= -->
-      <section id="cta" class="cta">
-        <div class="container" data-aos="zoom-in">
-          <!--         <div class="text-center">
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta">
+            <div class="container" data-aos="zoom-in">
+                <!--         <div class="text-center">
                     <h3>Call To Action</h3>
                     <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <a class="cta-btn" href="#">Call To Action</a>
                 </div>         -->
-        </div>
-      </section>
-      <!-- End Cta Section -->
-
-      <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact">
-        <div class="container">
-          <div class="section-title">
-            <span>Contact Us</span>
-            <h2>Contact Us</h2>
-            <p>Feel free to get in touch with us</p>
-          </div>
-
-          <div class="row" data-aos="fade-up">
-            <div class="col-lg-6">
-              <div class="info-box mb-4">
-                <i class="bx bx-map"></i>
-                <h3>Our Address</h3>
-                <p>Tahlia Street, Jeddah, Saudi Arabia</p>
-              </div>
             </div>
+        </section>
+        <!-- End Cta Section -->
 
-            <div class="col-lg-3 col-md-6">
-              <div class="info-box mb-4">
-                <i class="bx bx-envelope"></i>
-                <h3>Email Us</h3>
-                <p>rikaz@example.com</p>
-              </div>
-            </div>
+        <!-- ======= Contact Us Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <span>Contact Us</span>
+                    <h2>Contact Us</h2>
+                    <p>Feel free to get in touch with us</p>
+                </div>
 
-            <div class="col-lg-3 col-md-6">
-              <div class="info-box mb-4">
-                <i class="bx bx-phone-call"></i>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
-              </div>
-            </div>
-          </div>
+                <div class="row" data-aos="fade-up">
+                    <div class="col-lg-6">
+                        <div class="info-box mb-4">
+                            <i class="bx bx-map"></i>
+                            <h3>Our Address</h3>
+                            <p>Tahlia Street, Jeddah, Saudi Arabia</p>
+                        </div>
+                    </div>
 
-          <div class="row" data-aos="fade-up">
-            <div class="col-lg-6">
-              <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
-            </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info-box mb-4">
+                            <i class="bx bx-envelope"></i>
+                            <h3>Email Us</h3>
+                            <p>rikaz@example.com</p>
+                        </div>
+                    </div>
 
-            <div class="col-lg-6">
-              <form action="/contact-us" method="post" role="form" class="php-email-form">
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required />
-                  </div>
-                  <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required />
-                  </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info-box mb-4">
+                            <i class="bx bx-phone-call"></i>
+                            <h3>Call Us</h3>
+                            <p>+1 5589 55488 55</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group mt-3">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required />
+
+                <div class="row" data-aos="fade-up">
+                    <div class="col-lg-6">
+                        <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                            frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <form action="/contact-us" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required />
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required />
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required />
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group mt-3">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-                <div class="text-center">
-                  <button type="submit">Send Message</button>
-                </div>
-              </form>
             </div>
-          </div>
-        </div>
-      </section>
-      <!-- End Contact Section -->
+        </section>
+        <!-- End Contact Section -->
     </main>
     <!-- End #main -->
 
@@ -313,5 +316,6 @@
 
     <!-- Template Main JS File -->
     <script src="static/js/main.js"></script>
-  </body>
+</body>
+
 </html>
