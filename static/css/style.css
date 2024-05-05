@@ -148,8 +148,30 @@ h6 {
     color: #fff;
 }
 
+
+/* #header .logo img {
+    max-height: 50px;
+} */
+
+#header .logo {
+    display: flex;
+    align-items: center;
+}
+
 #header .logo img {
-    max-height: 40px;
+    max-height: 50px;
+    margin-right: 10px;
+}
+
+#header .logo .logo-text {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
 }
 
 .scrolled-offset {
@@ -834,7 +856,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit] {
-    background: #8EA7BC;
+    background: #7f8e76d5;
     border: 0;
     padding: 10px 24px;
     color: #fff;
@@ -1069,12 +1091,12 @@ html {
 
 a {
     text-decoration: none;
-    color: #8EA7BC;
+    color: #7f8e76d5;
     transition: .5s ease;
 }
 
 a:hover {
-    color: #179b77;
+    color: #7f8e769f;
 }
 
 .form {
@@ -1113,12 +1135,12 @@ a:hover {
 }
 
 .tab-group li a:hover {
-    background: #8EA7BC;
+    background: #7f8e769f;
     color: #ffffff;
 }
 
 .tab-group .active a {
-    background: #8EA7BC;
+    background: #7f8e76d5;
     color: #ffffff;
 }
 
@@ -1159,7 +1181,7 @@ label {
 label .req,
 small {
     margin: 2px;
-    color: #8EA7BC;
+    color: #7f8e76d5;
 }
 
 label.active {
@@ -1198,7 +1220,7 @@ textarea:focus {
 }
 
 textarea {
-    border: 2px solid #a0b3b0;
+    border: 2px solid #7f8e769f;
     resize: vertical;
 }
 
@@ -1245,7 +1267,7 @@ input[type="checkbox"],
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
-    background: #8EA7BC;
+    background: #7f8e76d5;
     color: #ffffff;
     transition: all 0.5s ease;
     -webkit-appearance: none;
@@ -1258,7 +1280,7 @@ input[type="checkbox"],
 
 .button:hover,
 .button:focus {
-    background: #8EA7BC;
+    background: #7f8e76d5;
 }
 
 .button-block {
@@ -1343,7 +1365,7 @@ select:hover {
 .select-wrap label .req,
 .select-wrap small {
     margin: 2px;
-    color: #8EA7BC;
+    color: #7f8e76d5;
 }
 
 .select-wrap label.active {
@@ -1387,7 +1409,7 @@ select:hover {
     margin: 0 auto;
     width: 64px;
     height: 64px;
-    background: #8EA7BC;
+    background: #7f8e76d5;
     transition: all 0.3s ease-out 0s;
     display: flex;
     align-items: center;
@@ -1411,7 +1433,7 @@ select:hover {
     top: -8px;
     height: 100%;
     width: 100%;
-    background: #a0774b33;
+    background: #7f8e7655;
     transition: all 0.3s ease-out 0s;
     transform: translateZ(-1px);
     z-index: -1;
@@ -1434,8 +1456,8 @@ select:hover {
 }
 
 .dashboard .icon-box:hover {
-    background: #8EA7BC;
-    border-color: #8EA7BC;
+    background: #7f8e76d5;
+    border-color: #7f8e76d5;
     padding: 70px 20px 90px 20px;
 }
 
@@ -1444,7 +1466,7 @@ select:hover {
 }
 
 .dashboard .icon-box:hover .icon i {
-    color: #8EA7BC;
+    color: #7f8e76d5;
 }
 
 .dashboard .icon-box:hover .icon::before {
@@ -1601,7 +1623,7 @@ th {
     margin: 0 auto;
     width: 64px;
     height: 64px;
-    background: #8EA7BC;
+    background: #7f8e76d5;
     transition: all 0.3s ease-out 0s;
     display: flex;
     align-items: center;
@@ -1648,8 +1670,8 @@ th {
 }
 
 .account-settings .icon-box:hover {
-    background: #8EA7BC;
-    border-color: #8EA7BC;
+    background: #7f8e76d5;
+    border-color: #7f8e76d5;
     padding: 70px 20px 90px 20px;
 }
 
@@ -1658,7 +1680,7 @@ th {
 }
 
 .account-settings .icon-box:hover .icon i {
-    color: #8EA7BC;
+    color: #7f8e76d5;
 }
 
 .account-settings .icon-box:hover .icon::before {
@@ -1681,13 +1703,13 @@ th {
 
 .update-info .button,
 .account-settings .button {
-    background: #8EA7BC;
+    background: #7f8e76d5;
     color: #ffffff;
 }
 
 .update-info .button:hover,
 .update-info .button:focus {
-    background: #8EA7BC;
+    background: #7f8e76d5;
 }
 
 .update-info input {
