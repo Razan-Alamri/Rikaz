@@ -3,3 +3,4 @@ App.py filter=lfs diff=lfs merge=lfs -text
 *.h5 filter=lfs diff=lfs merge=lfs -text
 =======
 >>>>>>> 7cb5c570ab61b881e90cc138ec778f07030e455f
+Rikaz_Model(ASTER+Vgg16).h5 filter=lfs diff=lfs merge=lfs -text
