@@ -42,8 +42,8 @@ WTForms==3.0.1
 yarl==1.9.2
 bcrypt==4.1.2
 Flask-Mail==0.9.1
-pyrsgis==0.4.1
-gdal==2.4.0 
+#pyrsgis==0.4.1
+#gdal==2.4.0 
 rasterio>=1.2.0
 tensorflow==2.11.0
 tensorflow-estimator==2.11.0
@@ -51,3 +51,4 @@ tensorflow-intel==0.0.1
 tensorflow-io-gcs-filesystem==0.31.0
 matplotlib==3.5.3
 scikit-learn==1.0.2 
+pdfkit==1.0.0
