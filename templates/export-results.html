@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -25,9 +26,9 @@
 
     <!-- Template Main CSS File -->
     <link href="static/css/style.css" rel="stylesheet" />
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- ======= Header ======= -->
     {% include 'header.html' %}
     <!-- End Header -->
@@ -35,30 +36,36 @@
 
     <!-- ======= Export Results Section ======= -->
     <section class="form">
-      <h1>Export Results</h1>
-      <form method="post" action="/">
-        <div class="field-wrap">
-          <h2>Select Format:</h2>
-          <input type="checkbox" id="PDF_data" value="PDF_data" />
-          <label for="PDF_data" class="Export">PDF</label>
-          <br />
+        <h1>Export Results</h1>
+        <form action="/export-results/{{ result_id }}" method="POST">
+            <div class="field-wrap">
+                <h2>Select Format:</h2>
+                <input type="checkbox" id="PDF_data" name="export_option" value="PDF_data" />
+                <label for="PDF_data" class="Export">PDF</label>
+                <br />
 
-          <input type="checkbox" id="JPG_data" value="JPG_data" />
-          <label for="JPG_data" class="Export">JPG</label>
-          <br />
+                <input type="checkbox" id="JPG_data" name="export_option" value="JPG_data" />
+                <label for="JPG_data" class="Export">JPG</label>
+                <br />
 
-          <input type="checkbox" id="PNG_data" value="PNG_data" />
-          <label for="PNG_data" class="Export">PNG</label>
-          <br />
+                <input type="checkbox" id="PNG_data" name="export_option" value="PNG_data" />
+                <label for="PNG_data" class="Export">PNG</label>
+                <br />
 
-          <input type="checkbox" id="CSV_data" value="CSV_data" />
-          <label for="CSV_data" class="Export">TIFF</label>
-          <br />
-        </div>
-        <input type="button" onclick="location.href='/dashboard'" value="Export" class="button button-block" />
-      </form>
+                <input type="checkbox" id="TIF_data" name="export_option" value="TIF_data" />
+                <label for="TIF_data" class="Export">TIF</label>
+                <br />
+            </div>
+
+
+            <input type="submit" value="Export" class="button button-block" />
+            <br />
+            <input type="button" onclick="location.href='/previous-results'" value="Ok" class="button button-block" />
+            <br />
+        </form>
     </section>
-    <!-- Export Results Section -->
+    <!-- End Export Results Section -->
+
 
     <!-- ======= Footer ======= -->
     {% include 'footer.html' %}
@@ -77,5 +84,6 @@
 
     <!-- Template Main JS File -->
     <script src="static/js/main.js"></script>
-  </body>
+</body>
+
 </html>

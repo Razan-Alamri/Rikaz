@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Rikaz - Analysis Results</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="static/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="/" class="logo">
+                <!-- <img src="static/img/logo.png" alt="" class="img-fluid"> -->
+                <span class="logo-text">Rikaz</span>
+            </a>
+
+
+        </div>
+    </header>
+    <!-- End Header -->
+    <br /><br />
+    <p></p>
+
+    <!-- ======= Analysis Result Section ======= -->
+    <div class="container-result">
+        <section class="analysis-result">
+            <div class="box">
+                <span>Image Analysis Results</span>
+
+                <h4>Image Information:</h4>
+                <ul>
+                    <li>
+                        <strong>Image Name:</strong> {{ analysis_results.image_name }}
+                    </li>
+                    <li>
+                        <strong>Date of Acquisition:</strong> {{ analysis_results.acquisition_date }}
+                    </li>
+                    <li>
+                        <strong>Satellite Name:</strong> {{ analysis_results.satellite_name }}
+                    </li>
+                    <li>
+                        <strong>Coordinates:</strong> {{ analysis_results.coordinates }}
+                    </li>
+                    <li>
+                        <strong>Area Name:</strong> {{ analysis_results.area_name }}
+                    </li>
+                    <li>
+                        <strong>Spatial Resolution:</strong> {{ analysis_results.spatial_resolution }}
+                    </li>
+                </ul>
+
+                <h4>Mineral Distribution Map:</h4>
+                <img src="data:image/jpeg;base64,{{ analysis_results.map_data }}" alt="Mineral Distribution Map">
+                <br /><br /><br />
+        </section>
+        </div>
+
+</body>
+
+</html>

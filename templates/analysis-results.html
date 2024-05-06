@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -25,9 +26,9 @@
 
     <!-- Template Main CSS File -->
     <link href="static/css/style.css" rel="stylesheet" />
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- ======= Header ======= -->
     {% include 'header.html' %}
     <!-- End Header -->
@@ -36,74 +37,42 @@
 
     <!-- ======= Analysis Result Section ======= -->
     <div class="container-result">
-      <section class="analysis-result">
-        <div class="box">
-          <span>Image Analysis Results</span>
+        <section class="analysis-result">
+            <div class="box">
+                <span>Image Analysis Results</span>
 
-          <h4>Image Information:</h4>
-          <ul>
-            <li>
-              <strong>Image Name:</strong> {{ analysis_results.image_name }}
-            </li>
-            <li>
-              <strong>Date of Acquisition:</strong> {{ analysis_results.acquisition_date }}
-            </li>
-            <li>
-              <strong>Satellite Name:</strong> {{ analysis_results.satellite_name }}
-            </li>
-            <li>
-              <strong>Coordinates:</strong> {{ analysis_results.coordinates }}
-            </li>
-            <li>
-              <strong>Area Name:</strong> {{ analysis_results.area_name }}
-            </li>
-            <li>
-              <strong>Spatial Resolution:</strong> {{ analysis_results.spatial_resolution }}
-            </li>
-          </ul>
-   <!--       <br />
+                <h4>Image Information:</h4>
+                <ul>
+                    <li>
+                        <strong>Image Name:</strong> {{ analysis_results.image_name }}
+                    </li>
+                    <li>
+                        <strong>Date of Acquisition:</strong> {{ analysis_results.acquisition_date }}
+                    </li>
+                    <li>
+                        <strong>Satellite Name:</strong> {{ analysis_results.satellite_name }}
+                    </li>
+                    <li>
+                        <strong>Coordinates:</strong> {{ analysis_results.coordinates }}
+                    </li>
+                    <li>
+                        <strong>Area Name:</strong> {{ analysis_results.area_name }}
+                    </li>
+                    <li>
+                        <strong>Spatial Resolution:</strong> {{ analysis_results.spatial_resolution }}
+                    </li>
+                </ul>
 
-          <h4>Mineral Analysis Results:</h4>
-          <table>
-            <tr>
-              <th>Mineral</th>
-              <th>Concentration</th>
-              <th>Description</th>
-            </tr>
-            <tr>
-              <td>Quartz</td>
-              <td>High</td>
-              <td>Quartz is a common mineral associated with various mineral deposits, such as gold and silver.</td>
-            </tr>
-            <tr>
-              <td>Feldspar</td>
-              <td>Moderate</td>
-              <td>Feldspar is found in igneous rocks and can indicate potential mineralization.</td>
-            </tr>
-            <tr>
-              <td>Chlorite</td>
-              <td>Low</td>
-              <td>Chlorite is associated with hydrothermal alteration and can be an indicator of mineral deposits.</td>
-            </tr>
-            <tr>
-              <td>Gypsum</td>
-              <td>Moderate</td>
-              <td>Gypsum is a soft sulfate mineral often used in construction and plasterboard.</td>
-            </tr>
-          </table>
+                <h4>Mineral Distribution Map:</h4>
+                <img src="data:image/jpeg;base64,{{ analysis_results.map_data }}" alt="Mineral Distribution Map" />
+                <br /><br /><br />
 
-          <br />-->
-
-          <h4>Mineral Distribution Map:</h4>
-          <img src="data:image/jpeg;base64,{{ analysis_results.map_data }}" alt="Mineral Distribution Map" />
-          <br /><br /><br />
-
-          <input type="button" onclick="location.href='/export-results'" value="Export Results" class="button button-block" />
-          <br />
-          <input type="button" onclick="location.href='/previous-results'" value="Ok" class="button button-block" />
-          <br />
-        </div>
-      </section>
+                <input type="button" onclick="location.href='/export-results/{{ analysis_results.result_id }}'" value="Export Results" class="button button-block" />
+                <br />
+                <input type="button" onclick="location.href='/previous-results'" value="Ok" class="button button-block" />
+                <br />
+            </div>
+        </section>
     </div>
     <!-- End Analysis Result Section -->
 
@@ -124,5 +93,6 @@
 
     <!-- Template Main JS File -->
     <script src="static/js/main.js"></script>
-  </body>
+</body>
+
 </html>
