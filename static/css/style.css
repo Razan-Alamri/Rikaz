@@ -1229,7 +1229,7 @@ textarea {
     margin-bottom: 40px;
 }
 
-input[type="checkbox"],
+input[type="radio"],
 .Export label {
     display: inline-flex;
     align-items: start;
