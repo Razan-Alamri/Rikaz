@@ -29,6 +29,16 @@
     <!-- Template Main CSS File -->
     <link href="static/css/style.css" rel="stylesheet">
 
+    <style>
+        body {
+            background-image: url("/static/img/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            z-index: -1;
+        }
+    </style>
+    
     <script>
       // Display an alert box with the error message
       {% if alert_message %}
@@ -47,7 +57,7 @@
     <br><br>
 
     <!-- ======= Form ======= -->
-    <div class="form">
+    <div class="form" style="background-color:  #fff;">
 
         <ul class="tab-group">
             <li class="tab active"><a href="#login">Log In</a></li>
