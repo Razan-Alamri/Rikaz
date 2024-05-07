@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -25,9 +26,20 @@
 
     <!-- Template Main CSS File -->
     <link href="static/css/style.css" rel="stylesheet" />
-  </head>
 
-  <body>
+    <style>
+        body {
+            background-image: url("static/img/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            z-index: -1;
+        }
+    </style>
+
+</head>
+
+<body>
     <!-- ======= Header ======= -->
     {% include 'header.html' %}
     <!-- End Header -->
@@ -35,57 +47,57 @@
 
     <!-- ======= Dashboard Section ======= -->
     <section id="dashboard" class="dashboard">
-      <div class="container">
-        <div class="section-title">
-          <span>Welcome, {{ user[1] }}!</span>
-          <h2>Welcome, {{ user[1] }}!</h2>
-        </div>
-
-        <!-- Logout Button -->
-        <div class="text-center mt-4">
-          <a href="/logout" class="btn btn-danger logout-button">Logout</a>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-up">
-            <div class="icon-box" onclick="navigateTo('/satellite-upload')">
-              <div class="icon">
-                <i class="bx bx-cloud-upload"></i>
-              </div>
-              <h4>Upload Satellite Image</h4>
-              <p>Upload satellite images of target areas for mineral exploration and analysis.</p>
+        <div class="container">
+            <div class="section-title">
+                <span>Welcome, {{ user[1] }}!</span>
+                <h2>Welcome, {{ user[1] }}!</h2>
             </div>
-          </div>
 
-          <div class="col-lg-4" data-aos="fade-up">
-            <div class="icon-box" onclick="navigateTo('/previous-results')">
-              <div class="icon">
-                <i class="bx bx-data"></i>
-              </div>
-              <h4>Previous Results</h4>
-              <p>Access and retrieve previous analysis results stored in the secure database.</p>
+            <!-- Logout Button -->
+            <div class="text-center mt-4">
+                <a href="/logout" class="btn btn-danger logout-button">Logout</a>
             </div>
-          </div>
 
-          <div class="col-lg-4" data-aos="fade-up">
-            <div class="icon-box" onclick="navigateTo('/account-settings')">
-              <div class="icon">
-                <i class="bx bx-export"></i>
-              </div>
-              <h4>Account Settings</h4>
-              <p>Update your personal information, change your password, and delete your account.</p>
+            <div class="row">
+                <div class="col-lg-4" data-aos="fade-up" style="background-color:  #fff;">
+                    <div class="icon-box" onclick="navigateTo('/satellite-upload')">
+                        <div class="icon">
+                            <i class="bx bx-cloud-upload"></i>
+                        </div>
+                        <h4>Upload Satellite Image</h4>
+                        <p>Upload satellite images of target areas for mineral exploration and analysis.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" style="background-color:  #fff;">
+                    <div class="icon-box" onclick="navigateTo('/previous-results')">
+                        <div class="icon">
+                            <i class="bx bx-data"></i>
+                        </div>
+                        <h4>Previous Results</h4>
+                        <p>Access and retrieve previous analysis results stored in the secure database.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" style="background-color: #fff;">
+                    <div class="icon-box" onclick="navigateTo('/account-settings')">
+                        <div class="icon">
+                            <i class="bx bx-export"></i>
+                        </div>
+                        <h4>Account Settings</h4>
+                        <p>Update your personal information, change your password, and delete your account.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
     <!-- End Dashboard Section -->
 
     <!-- Function to navigate to the specified URL -->
     <script>
-      function navigateTo(url) {
-        window.location.href = url
-      }
+        function navigateTo(url) {
+            window.location.href = url
+        }
     </script>
 
     <!-- ======= Footer ======= -->
@@ -105,5 +117,6 @@
 
     <!-- Template Main JS File -->
     <script src="static/js/main.js"></script>
-  </body>
+</body>
+
 </html>

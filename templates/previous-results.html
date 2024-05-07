@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -25,9 +26,19 @@
 
     <!-- Template Main CSS File -->
     <link href="static/css/style.css" rel="stylesheet" />
-  </head>
 
-  <body>
+    <style>
+        body {
+            background-image: url("static/img/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
     <!-- ======= Header ======= -->
     {% include 'header.html' %}
     <!-- End Header -->
@@ -35,27 +46,26 @@
 
     <!-- ======= Previous Results Section ======= -->
     <div class="container-result">
-      <section class="analysis-result">
-        <div class="box">
-          <span>Previous Results</span>
-          <br />
-          {% for result in previous_results %}
-            <div class="result-item" onclick="navigateTo('/analysis-results-{{ result[0] }}')">
-              <strong>Result {{ loop.index }}</strong> {{ result[1] }}_{{ result[0] }}
+        <section class="analysis-result">
+            <div class="box" style="background-color:  #fff;">
+                <span>Previous Results</span>
+                <br /> {% for result in previous_results %}
+                <div class="result-item" onclick="navigateTo('/analysis-results-{{ result[0] }}')">
+                    <strong>Result {{ loop.index }}</strong> {{ result[1] }}_{{ result[0] }}
+                </div>
+                {% endfor %}
+                <br />
+                <button onclick="navigateTo('/dashboard')" type="submit" class="button button-block">Go Back</button>
             </div>
-          {% endfor %}
-          <br />
-          <button onclick="navigateTo('/dashboard')" type="submit" class="button button-block">Go Back</button>
-        </div>
-      </section>
+        </section>
     </div>
     <!-- End Previous Results Section -->
 
     <!-- Function to navigate to the specified route -->
     <script>
-      function navigateTo(route) {
-        window.location.href = route
-      }
+        function navigateTo(route) {
+            window.location.href = route
+        }
     </script>
 
     <br />
@@ -79,5 +89,6 @@
 
     <!-- Template Main JS File -->
     <script src="static/js/main.js"></script>
-  </body>
+</body>
+
 </html>

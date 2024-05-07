@@ -27,6 +27,16 @@
     <!-- Template Main CSS File -->
     <link href="static/css/style.css" rel="stylesheet">
 
+    <style>
+        body {
+            background-image: url("static/img/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            z-index: -1;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -37,7 +47,7 @@
     <br><br>
 
     <!-- ======= Upload Satellite Image Section ======= -->
-    <div class="form">
+    <div class="form" style="background-color:  #fff;">
         <div class="tab-content">
             <h1>Upload Satellite Image</h1>
             <form action="/satellite-upload" method="POST" enctype="multipart/form-data">
