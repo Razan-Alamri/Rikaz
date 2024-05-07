@@ -26,6 +26,16 @@
     <!-- Template Main CSS File -->
     <link href="static/css/style.css" rel="stylesheet" />
 
+    <style>
+        body {
+            background-image: url("/static/img/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            z-index: -1;
+        }
+    </style>
+    
     <script>
       // Display an alert box with the error message
       {% if alert_message %}
@@ -43,7 +53,7 @@
     <br /><br />
 
     <!-- ======= Delete Account Section ======= -->
-    <div class="form update-info">
+    <div class="form update-info" style="background-color:  #fff;">
       <div class="tab-content">
         <h1>Delete Account</h1>
         <form action="{{ url_for('delete_account') }}" method="POST">
